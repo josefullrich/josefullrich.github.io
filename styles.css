@@ -1,0 +1,446 @@
+/*
+ * Global Stylesheet for the personal academic portfolio.
+ *
+ * The palette and typographic scale are kept deliberately simple to
+ * showcase your content without unnecessary visual clutter.  To
+ * customise colours or spacing, adjust the CSS variables defined
+ * below.  Feel free to modify or extend these rules to suit your
+ * personal style.
+ */
+
+:root {
+  --bg-color: #f9f9f9;
+  --accent-color: #2d6cdf;
+  --text-color: #333333;
+  --heading-color: #0a1f44;
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5;
+  --tag-bg: #e6ecf7;
+  --tag-color: #2d6cdf;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Navigation bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--heading-color);
+}
+
+/* Hide the brand in the navigation bar on large screens since the name appears in the sidebar */
+@media (min-width: 769px) {
+  .brand {
+    display: none;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Hamburger icon for mobile */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-toggle .hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-color);
+  position: relative;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.nav-toggle .hamburger::before {
+  top: -6px;
+}
+
+.nav-toggle .hamburger::after {
+  top: 6px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--card-bg);
+    flex-direction: column;
+    display: none;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .nav-links a {
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--heading-color);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* Layout with fixed sidebar */
+.layout {
+  display: flex;
+  margin-top: 0;
+}
+
+/* Left sidebar */
+/* Fixed sidebar that does not move during page scroll */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--card-border);
+  padding: 2rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar h1 {
+  font-size: 2rem;
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-tagline {
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.sidebar-bio {
+  font-size: 0.9rem;
+  color: #555555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* Navigation links inside the fixed sidebar */
+.sidebar-nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-nav a {
+  color: var(--heading-color);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Sidebar headshot */
+.sidebar-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+/* Main content area next to the sidebar */
+.main-content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 0 2rem;
+}
+
+/* Responsive behaviour: stack sidebar above content on small screens */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--card-border);
+    padding: 1.5rem 1rem;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+}
+
+/* Section styles */
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background-color: #f2f6fc;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--heading-color);
+}
+
+.section-content {
+  margin-top: 1rem;
+}
+
+/* Grid layouts */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card component */
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--heading-color);
+  font-size: 1.25rem;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.card ul li {
+  list-style: disc;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* About section */
+/* About section layout */
+.about-grid {
+  display: grid;
+  /* Use a single column when no photo is present; if a photo is added it will stack naturally */
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Legacy styles kept for potential future use when an image is present */
+.about-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Education entry */
+.education-entry {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* Contact section */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-icon {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-icon:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  padding: 1rem 0;
+  text-align: center;
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  margin-top: 2rem;
+}
+
+.footer p {
+  color: #666666;
+  font-size: 0.9rem;
+}

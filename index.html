@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josef Ullrich | Portfolio</title>
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Import Google Fonts for a clean, professional look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Defer JavaScript to ensure HTML renders first -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Layout wrapper with a fixed sidebar and a scrollable main content area -->
+  <div class="layout">
+    <!-- Left sidebar that remains in view during scrolling -->
+    <aside class="sidebar">
+      <!-- Optional headshot in the sidebar -->
+      <img src="assets/headshot.jpg" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
+      <h1>Josef Ullrich</h1>
+      <p class="sidebar-tagline">Electrical Engineering student at UC Santa Barbara</p>
+      <p class="sidebar-bio">
+        Wireless communications, localisation, signal processing and digital systems. Building systems that
+        transmit data, localise users, sense their environment and adapt intelligently.
+      </p>
+      <div class="sidebar-links">
+        <a href="resume.pdf" class="sidebar-link" target="_blank" rel="noopener">CV</a>
+        <a href="https://github.com/yourusername" class="sidebar-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/yourusername" class="sidebar-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:your.email@domain.com" class="sidebar-link">Email</a>
+      </div>
+
+      <!-- Navigation links moved from the top bar to the sidebar -->
+      <nav class="sidebar-nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Main scrollable content -->
+    <main class="main-content">
+
+  <!-- About section -->
+  <section id="about" class="section">
+    <div class="container section-content">
+      <h2>About</h2>
+      <div class="about-grid">
+        <p>
+          I am an undergraduate Electrical Engineering student at UC Santa Barbara interested in wireless communications, sensing,
+          localisation and digital signal processing. My current research focuses on AI/ML‑based positioning using wireless
+          digital twins, ray‑traced MIMO channel data and realistic cellular deployments.
+          More broadly, I'm interested in building communication systems that not only transmit data but also localise users,
+          sense their environment and adapt intelligently to real‑world constraints. I also have industry experience in
+          systems engineering and digital design through internships at Northrop Grumman.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research section -->
+  <section id="research" class="section section-alt">
+    <div class="container section-content">
+      <h2>Research</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Wireless Digital Twins for Cellular MIMO Localization</h3>
+          <p class="card-subtitle">
+            Undergraduate Researcher, UCSB Wireless Communications and Sensing Lab &nbsp;&middot;&nbsp;
+            Advisor: Prof. Upamanyu Madhow
+          </p>
+          <p>
+            How accurately can existing cellular infrastructure localize users in realistic environments? I am working on AI/ML‑based
+            positioning using wireless digital twins generated from site‑specific ray tracing. This project studies how
+            multi‑base‑station MIMO channel observations can be used to estimate user position in realistic urban and suburban scenes.
+          </p>
+          <ul>
+            <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing.</li>
+            <li>Built preprocessing pipelines for multi‑base‑station channel tensors and position labels.</li>
+            <li>Ran model and preprocessing ablations to study localization performance.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Wireless</span>
+            <span class="tag">MIMO</span>
+            <span class="tag">Localization</span>
+            <span class="tag">Digital Twin</span>
+            <span class="tag">ML</span>
+          </div>
+        </div>
+        <!-- Additional research cards can be added here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience section -->
+  <section id="experience" class="section">
+    <div class="container section-content">
+      <h2>Experience</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Systems Engineering & Digital Design Intern</h3>
+          <p class="card-subtitle">Northrop Grumman &nbsp;&middot;&nbsp; Summer 2025 & 2026</p>
+          <ul>
+            <li>Worked in mission systems and communications environments.</li>
+            <li>Gained exposure to verification, RF/communications modelling and multidisciplinary engineering workflows.</li>
+            <li>Focused on FPGA/VHDL, digital design and module verification.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Systems Engineering</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">VHDL</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Undergraduate Researcher</h3>
+          <p class="card-subtitle">UCSB WCSL &nbsp;&middot;&nbsp; 2025–Present</p>
+          <ul>
+            <li>AI/ML‑based localisation using wireless digital twins and ray‑traced MIMO channel data.</li>
+            <li>Generated and processed multi‑base‑station datasets.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Research</span>
+            <span class="tag">Localisation</span>
+            <span class="tag">Digital Twin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects" class="section section-alt">
+    <div class="container section-content">
+      <h2>Projects</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Two‑Microphone Bearing Estimation</h3>
+          <p>
+            Implemented cross‑correlation and time‑delay‑of‑arrival algorithms to estimate bearing with minimal hardware.
+          </p>
+          <div class="tags">
+            <span class="tag">Signal Processing</span>
+            <span class="tag">Audio</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Ground Penetrating Radar Imaging</h3>
+          <p>
+            Processed FMCW radar data to create range profiles and depth images using IFFT and signal processing techniques.
+          </p>
+          <div class="tags">
+            <span class="tag">Radar</span>
+            <span class="tag">Imaging</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Digital Communications Simulations</h3>
+          <p>
+            Simulated BPSK/QPSK/QAM modulation schemes, pulse shaping and matched filtering; explored bandwidth vs SNR trade‑offs.
+          </p>
+          <div class="tags">
+            <span class="tag">Communications</span>
+            <span class="tag">Simulation</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>FPGA/VHDL Verification</h3>
+          <p>
+            Developed and tested small digital designs in VHDL to prepare for industry verification workflows.
+          </p>
+          <div class="tags">
+            <span class="tag">FPGA</span>
+            <span class="tag">VHDL</span>
+            <span class="tag">Verification</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education section -->
+  <section id="education" class="section">
+    <div class="container section-content">
+      <h2>Education</h2>
+      <div class="education-entry">
+        <h3>University of California, Santa Barbara</h3>
+        <p>B.S. in Electrical Engineering, 2027 (expected)</p>
+        <p>
+          Relevant Coursework: Digital Communications, Signal Processing, Radar Systems, FPGA Design, Machine Learning,
+          Probability & Statistics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section id="contact" class="section section-alt">
+    <div class="container section-content">
+      <h2>Contact</h2>
+      <p>
+        Feel free to reach out if you’d like to chat about research, projects or potential collaborations.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:your.email@domain.com" class="contact-icon">Email</a>
+        <a href="https://github.com/yourusername" class="contact-icon" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/yourusername" class="contact-icon" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Close main content and layout wrapper -->
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Josef Ullrich. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
