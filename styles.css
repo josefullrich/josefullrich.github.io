@@ -85,11 +85,18 @@ a {
 }
 
 .sidebar-photo {
-  width: 120px;
-  height: auto;
+  /* Fixed square size so the photo is always a perfect circle */
+  width: 130px;
+  height: 130px;
+
+  /* Crop the tall portrait photo to fill the square...       */
+  object-fit: cover;
+  /* ...and anchor the crop to the top, where the face is     */
+  object-position: 50% 0%;
+
   display: block;
   margin: 0 auto 1rem;
-  border-radius: 12px;
+  border-radius: 50%;
   border: 3px solid var(--border-color);
 }
 
@@ -198,7 +205,6 @@ a {
 .main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
-  max-width: 900px;
   padding: 2rem 2.5rem 3rem;
 }
 
@@ -437,7 +443,6 @@ a {
 
   .main-content {
     margin-left: 0;
-    max-width: none;
     padding: 1.25rem 1rem 2rem;
   }
 
