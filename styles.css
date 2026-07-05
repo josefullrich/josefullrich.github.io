@@ -323,7 +323,7 @@ body {
 .section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
   color: var(--heading-color);
 }
 
@@ -357,6 +357,59 @@ body {
   font-size: 0.9rem;
   color: #666666;
   margin-bottom: 1rem;
+}
+
+/* Big placeholder image for the research section.
+   Swap this out for a real <img> tag once you have a photo or diagram. */
+.research-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+  border: 2px dashed var(--card-border);
+  border-radius: 8px;
+  color: #999999;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Row that holds a small company logo next to the job title/subtitle */
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Small square placeholder for a company/lab logo.
+   Swap this out for a real <img> tag once you have a logo. */
+.company-logo-placeholder {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+  border: 2px dashed var(--card-border);
+  border-radius: 8px;
+  color: #999999;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Real company/lab logo shown next to a job title in the Experience section */
+.company-logo {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: #ffffff;
+  border: 1px solid var(--card-border);
 }
 
 .card p {

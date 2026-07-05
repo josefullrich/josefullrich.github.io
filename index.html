@@ -19,7 +19,7 @@
     <!-- Left sidebar that remains in view during scrolling -->
     <aside class="sidebar">
       <!-- Optional headshot in the sidebar -->
-      <img src="assets/headshot.jpg" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
+      <img src="assets/headshot.png" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
       <h1>Josef Ullrich</h1>
       <p class="sidebar-tagline">Electrical Engineering student at UC Santa Barbara</p>
       <p class="sidebar-bio">
@@ -35,7 +35,7 @@
 
       <!-- Navigation links moved from the top bar to the sidebar -->
       <nav class="sidebar-nav">
-        <a href="#about">About</a>
+        <a href="#about">About Me</a>
         <a href="#research">Research</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
@@ -50,15 +50,16 @@
   <!-- About section -->
   <section id="about" class="section">
     <div class="container section-content">
-      <h2>About</h2>
+      <h2>About Me</h2>
       <div class="about-grid">
         <p>
-          I am an undergraduate Electrical Engineering student at UC Santa Barbara interested in wireless communications, sensing,
-          localisation and digital signal processing. My current research focuses on AI/ML‑based positioning using wireless
-          digital twins, ray‑traced MIMO channel data and realistic cellular deployments.
-          More broadly, I'm interested in building communication systems that not only transmit data but also localise users,
-          sense their environment and adapt intelligently to real‑world constraints. I also have industry experience in
-          systems engineering and digital design through internships at Northrop Grumman.
+          I am  BS Electrical Engineering student at UC Santa Barbara interested in wireless communications, sensing, and
+          localization. 
+
+          Currently an FPGA verification intern at Northrop Grumman and an undergraduate researcher at the Wireless Communications and Sensornets Labratory.  
+
+          Reach out to me: josef@ucsb.edu
+
         </p>
       </div>
     </div>
@@ -76,21 +77,18 @@
             Advisor: Prof. Upamanyu Madhow
           </p>
           <p>
-            How accurately can existing cellular infrastructure localize users in realistic environments? I am working on AI/ML‑based
-            positioning using wireless digital twins generated from site‑specific ray tracing. This project studies how
-            multi‑base‑station MIMO channel observations can be used to estimate user position in realistic urban and suburban scenes.
+            We are developing AI/ML-based positioning algorithms for realistic urban environments, using NVIDIA Sionna to generate synthetic channel data from site-specific wireless digital twins. Alongside the algorithmic work, we are interested in the fundamental estimation-theoretic limits on what any positioning system can achieve in these settings. The primary focus is FR3 bands.
           </p>
           <ul>
             <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing.</li>
             <li>Built preprocessing pipelines for multi‑base‑station channel tensors and position labels.</li>
-            <li>Ran model and preprocessing ablations to study localization performance.</li>
+            <li>Integrated Overture Maps building-height data to replace missing OSM heights and improve simulation accuracy .</li>
           </ul>
           <div class="tags">
-            <span class="tag">Wireless</span>
-            <span class="tag">MIMO</span>
+            <span class="tag">Wireless Digital Twin</span>
             <span class="tag">Localization</span>
-            <span class="tag">Digital Twin</span>
-            <span class="tag">ML</span>
+            <span class="tag">CNN</span>
+            <span class="tag">Beamforming</span>
           </div>
         </div>
         <!-- Additional research cards can be added here -->
@@ -104,8 +102,13 @@
       <h2>Experience</h2>
       <div class="card-grid">
         <div class="card">
-          <h3>Systems Engineering & Digital Design Intern</h3>
+          <div class="experience-header">
+            <img src="assets/northropgrumman.png" alt="Northrop Grumman logo" class="company-logo" />
+            <div>
+              <h3>Systems Engineering & Digital Design Intern</h3>
           <p class="card-subtitle">Northrop Grumman &nbsp;&middot;&nbsp; Summer 2025 & 2026</p>
+            </div>
+          </div>
           <ul>
             <li>Worked in mission systems and communications environments.</li>
             <li>Gained exposure to verification, RF/communications modelling and multidisciplinary engineering workflows.</li>
@@ -118,8 +121,13 @@
           </div>
         </div>
         <div class="card">
-          <h3>Undergraduate Researcher</h3>
+          <div class="experience-header">
+            <img src="assets/ucsb_seal_transparent.png" alt="UCSB seal" class="company-logo" />
+            <div>
+              <h3>Undergraduate Researcher</h3>
           <p class="card-subtitle">UCSB WCSL &nbsp;&middot;&nbsp; 2025–Present</p>
+            </div>
+          </div>
           <ul>
             <li>AI/ML‑based localisation using wireless digital twins and ray‑traced MIMO channel data.</li>
             <li>Generated and processed multi‑base‑station datasets.</li>
@@ -189,7 +197,10 @@
     <div class="container section-content">
       <h2>Education</h2>
       <div class="education-entry">
-        <h3>University of California, Santa Barbara</h3>
+        <div class="experience-header">
+          <img src="assets/ucsb_seal_transparent.png" alt="UCSB seal" class="company-logo" />
+          <h3>University of California, Santa Barbara</h3>
+        </div>
         <p>B.S. in Electrical Engineering, 2027 (expected)</p>
         <p>
           Relevant Coursework: Digital Communications, Signal Processing, Radar Systems, FPGA Design, Machine Learning,
