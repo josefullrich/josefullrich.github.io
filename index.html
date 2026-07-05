@@ -3,237 +3,287 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Josef Ullrich | Portfolio</title>
-  <!-- Link to external stylesheet -->
+  <title>Josef Ullrich | Portfolio</title>
+
+  <!-- External stylesheet -->
   <link rel="stylesheet" href="styles.css" />
-  <!-- Import Google Fonts for a clean, professional look -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <!-- Defer JavaScript to ensure HTML renders first -->
+
+  <!-- Google Fonts: Inter for clean, professional typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Defer JavaScript so the HTML renders first -->
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Layout wrapper with a fixed sidebar and a scrollable main content area -->
+  <!-- ============================================================
+       LAYOUT: fixed sidebar on the left, scrolling content on the right
+       ============================================================ -->
   <div class="layout">
-    <!-- Left sidebar that remains in view during scrolling -->
+
+    <!-- ==================== SIDEBAR ==================== -->
     <aside class="sidebar">
-      <!-- Optional headshot in the sidebar -->
-      <img src="assets/headshot.png" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
-      <h1>Josef Ullrich</h1>
-      <p class="sidebar-tagline">Electrical Engineering student at UC Santa Barbara</p>
-      <p class="sidebar-bio">
-        Wireless communications, localisation, signal processing and digital systems. Building systems that
-        transmit data, localise users, sense their environment and adapt intelligently.
-      </p>
-      <div class="sidebar-links">
-        <a href="resume.pdf" class="sidebar-link" target="_blank" rel="noopener">CV</a>
-        <a href="https://github.com/yourusername" class="sidebar-link" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/yourusername" class="sidebar-link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:your.email@domain.com" class="sidebar-link">Email</a>
+
+      <div class="sidebar-top">
+        <img src="assets/headshot.png" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
+        <h1 class="sidebar-name">Josef Ullrich</h1>
+        <p class="sidebar-tagline">EE @ UC Santa Barbara</p>
+
+        <!-- Section navigation -->
+        <nav class="sidebar-nav" id="sidebar-nav">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#research" class="nav-link">Research</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#publications" class="nav-link">Publications</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
       </div>
 
-      <!-- Navigation links moved from the top bar to the sidebar -->
-      <nav class="sidebar-nav">
-        <a href="#about">About Me</a>
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <!-- Social + resume links pinned near the bottom of the sidebar -->
+      <div class="sidebar-bottom">
+        <div class="sidebar-social">
+          <!-- Email -->
+          <a href="mailto:josef@ucsb.edu" class="social-icon" aria-label="Email" title="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com/yourusername" class="social-icon" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .3.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/yourusername" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <a href="resume.pdf" class="resume-button" target="_blank" rel="noopener">Download CV</a>
+        <p class="sidebar-copyright">&copy; <span id="year"></span> Josef Ullrich</p>
+      </div>
     </aside>
 
-    <!-- Main scrollable content -->
+    <!-- ==================== MAIN CONTENT ==================== -->
     <main class="main-content">
 
-  <!-- About section -->
-  <section id="about" class="section">
-    <div class="container section-content">
-      <h2>About Me</h2>
-      <div class="about-grid">
-        <p>
-          I am  BS Electrical Engineering student at UC Santa Barbara interested in wireless communications, sensing, and
-          localization. 
-
-          Currently an FPGA verification intern at Northrop Grumman and an undergraduate researcher at the Wireless Communications and Sensornets Labratory.  
-
-          Reach out to me: josef@ucsb.edu
-
+      <!-- ---------- About ---------- -->
+      <section id="about" class="section-card">
+        <h2>About Me</h2>
+        <p class="about-lead">
+          I'm a BS Electrical Engineering student at UC Santa Barbara interested in
+          wireless communications, sensing, and localization.
         </p>
-      </div>
-    </div>
-  </section>
+        <p>
+          I enjoy building systems that transmit data, localize users, sense their environment,
+          and adapt intelligently &mdash; spanning signal processing, machine learning, and digital design.
+        </p>
+        <p>
+          Currently an FPGA verification intern at Northrop Grumman and an undergraduate researcher
+          at the Wireless Communications and Sensornets Laboratory (WCSL) at UCSB.
+        </p>
+        <p class="about-contact">Contact me: <a href="mailto:josef@ucsb.edu">josef@ucsb.edu</a></p>
+      </section>
 
-  <!-- Research section -->
-  <section id="research" class="section section-alt">
-    <div class="container section-content">
-      <h2>Research</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Wireless Digital Twins for Cellular MIMO Localization</h3>
-          <p class="card-subtitle">
-            Undergraduate Researcher, UCSB Wireless Communications and Sensing Lab &nbsp;&middot;&nbsp;
-            Advisor: Prof. Upamanyu Madhow
-          </p>
+      <!-- ---------- Research ---------- -->
+      <section id="research" class="section-card">
+        <h2>Research</h2>
+
+        <article class="entry">
+          <div class="entry-header">
+            <img src="assets/ucsb_seal_square.png" alt="UC Santa Barbara seal" class="entry-logo" />
+            <div class="entry-heading">
+              <h3>Wireless Digital Twins for Cellular MIMO Localization</h3>
+              <p class="entry-subtitle">
+                Undergraduate Researcher, UCSB Wireless Communications and Sensornets Lab (WCSL)<br />
+                Advisor: Prof. Upamanyu Madhow
+              </p>
+            </div>
+            <span class="entry-date">2025 &ndash; Present</span>
+          </div>
+
           <p>
-            We are developing AI/ML-based positioning algorithms for realistic urban environments, using NVIDIA Sionna to generate synthetic channel data from site-specific wireless digital twins. Alongside the algorithmic work, we are interested in the fundamental estimation-theoretic limits on what any positioning system can achieve in these settings. The primary focus is FR3 bands.
+            We are developing AI/ML-based positioning algorithms for realistic urban environments,
+            using NVIDIA Sionna to generate synthetic channel data from site-specific wireless
+            digital twins. Alongside the algorithmic work, we are interested in the fundamental
+            estimation-theoretic limits on what any positioning system can achieve in these settings.
+            The primary focus is FR3 bands.
           </p>
           <ul>
             <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing.</li>
-            <li>Built preprocessing pipelines for multi‑base‑station channel tensors and position labels.</li>
-            <li>Integrated Overture Maps building-height data to replace missing OSM heights and improve simulation accuracy .</li>
+            <li>Built preprocessing pipelines for multi-base-station channel tensors and position labels.</li>
+            <li>Integrated Overture Maps building-height data to replace missing OSM heights and improve simulation accuracy.</li>
           </ul>
+
+          <!-- Research figure: kept at a controlled width so it never dominates the page -->
+          <figure class="entry-figure">
+            <img src="assets/researchex.png"
+                 alt="Simulated urban deployment showing building heights, base stations, and transmitter sampling locations" />
+            <figcaption>
+              Site-specific digital twin of an urban block: building footprints with roof heights,
+              four base stations, and 5,000 sampled transmitter locations used for dataset generation.
+            </figcaption>
+          </figure>
+
           <div class="tags">
             <span class="tag">Wireless Digital Twin</span>
             <span class="tag">Localization</span>
             <span class="tag">CNN</span>
             <span class="tag">Beamforming</span>
+            <span class="tag">Ray Tracing</span>
           </div>
-        </div>
-        <!-- Additional research cards can be added here -->
-      </div>
-    </div>
-  </section>
+        </article>
+      </section>
 
-  <!-- Experience section -->
-  <section id="experience" class="section">
-    <div class="container section-content">
-      <h2>Experience</h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="experience-header">
-            <img src="assets/northropgrumman.png" alt="Northrop Grumman logo" class="company-logo" />
-            <div>
-              <h3>Systems Engineering & Digital Design Intern</h3>
-          <p class="card-subtitle">Northrop Grumman &nbsp;&middot;&nbsp; Summer 2025 & 2026</p>
+      <!-- ---------- Experience ---------- -->
+      <section id="experience" class="section-card">
+        <h2>Experience</h2>
+
+        <article class="entry">
+          <div class="entry-header">
+            <img src="assets/northropgrumman.png" alt="Northrop Grumman logo" class="entry-logo" />
+            <div class="entry-heading">
+              <h3>Systems Engineering &amp; Digital Design Intern</h3>
+              <p class="entry-subtitle">Northrop Grumman</p>
             </div>
+            <span class="entry-date">Summers 2025 &amp; 2026</span>
           </div>
           <ul>
             <li>Worked in mission systems and communications environments.</li>
-            <li>Gained exposure to verification, RF/communications modelling and multidisciplinary engineering workflows.</li>
-            <li>Focused on FPGA/VHDL, digital design and module verification.</li>
+            <li>Gained exposure to verification, RF/communications modeling, and multidisciplinary engineering workflows.</li>
+            <li>Focused on FPGA/VHDL, digital design, and module verification.</li>
           </ul>
           <div class="tags">
-            <span class="tag">Systems Engineering</span>
+            <span class="tag">Systems Engineering</span>
             <span class="tag">FPGA</span>
             <span class="tag">VHDL</span>
           </div>
-        </div>
-        <div class="card">
-          <div class="experience-header">
-            <img src="assets/ucsb_seal_transparent.png" alt="UCSB seal" class="company-logo" />
-            <div>
+        </article>
+
+        <hr class="entry-divider" />
+
+        <article class="entry">
+          <div class="entry-header">
+            <img src="assets/ucsb_seal_square.png" alt="UC Santa Barbara seal" class="entry-logo" />
+            <div class="entry-heading">
               <h3>Undergraduate Researcher</h3>
-          <p class="card-subtitle">UCSB WCSL &nbsp;&middot;&nbsp; 2025–Present</p>
+              <p class="entry-subtitle">UCSB Wireless Communications and Sensornets Lab</p>
             </div>
+            <span class="entry-date">2025 &ndash; Present</span>
           </div>
           <ul>
-            <li>AI/ML‑based localisation using wireless digital twins and ray‑traced MIMO channel data.</li>
-            <li>Generated and processed multi‑base‑station datasets.</li>
+            <li>AI/ML-based localization using wireless digital twins and ray-traced MIMO channel data.</li>
+            <li>Generated and processed multi-base-station datasets.</li>
           </ul>
           <div class="tags">
             <span class="tag">Research</span>
-            <span class="tag">Localisation</span>
-            <span class="tag">Digital Twin</span>
+            <span class="tag">Localization</span>
+            <span class="tag">Digital Twin</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
+      </section>
 
-  <!-- Projects section -->
-  <section id="projects" class="section section-alt">
-    <div class="container section-content">
-      <h2>Projects</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Two‑Microphone Bearing Estimation</h3>
-          <p>
-            Implemented cross‑correlation and time‑delay‑of‑arrival algorithms to estimate bearing with minimal hardware.
-          </p>
-          <div class="tags">
-            <span class="tag">Signal Processing</span>
-            <span class="tag">Audio</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Ground Penetrating Radar Imaging</h3>
-          <p>
-            Processed FMCW radar data to create range profiles and depth images using IFFT and signal processing techniques.
-          </p>
-          <div class="tags">
-            <span class="tag">Radar</span>
-            <span class="tag">Imaging</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Digital Communications Simulations</h3>
-          <p>
-            Simulated BPSK/QPSK/QAM modulation schemes, pulse shaping and matched filtering; explored bandwidth vs SNR trade‑offs.
-          </p>
-          <div class="tags">
-            <span class="tag">Communications</span>
-            <span class="tag">Simulation</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>FPGA/VHDL Verification</h3>
-          <p>
-            Developed and tested small digital designs in VHDL to prepare for industry verification workflows.
-          </p>
-          <div class="tags">
-            <span class="tag">FPGA</span>
-            <span class="tag">VHDL</span>
-            <span class="tag">Verification</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- ---------- Projects ---------- -->
+      <section id="projects" class="section-card">
+        <h2>Projects</h2>
+        <div class="project-grid">
 
-  <!-- Education section -->
-  <section id="education" class="section">
-    <div class="container section-content">
-      <h2>Education</h2>
-      <div class="education-entry">
-        <div class="experience-header">
-          <img src="assets/ucsb_seal_transparent.png" alt="UCSB seal" class="company-logo" />
-          <h3>University of California, Santa Barbara</h3>
+          <article class="project-card">
+            <h3>Two-Microphone Bearing Estimation</h3>
+            <p>
+              Implemented cross-correlation and time-delay-of-arrival algorithms to estimate
+              bearing with minimal hardware.
+            </p>
+            <div class="tags">
+              <span class="tag">Signal Processing</span>
+              <span class="tag">Audio</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Ground Penetrating Radar Imaging</h3>
+            <p>
+              Processed FMCW radar data to create range profiles and depth images using IFFT
+              and signal processing techniques.
+            </p>
+            <div class="tags">
+              <span class="tag">Radar</span>
+              <span class="tag">Imaging</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Digital Communications Simulations</h3>
+            <p>
+              Simulated BPSK/QPSK/QAM modulation schemes, pulse shaping, and matched filtering;
+              explored bandwidth vs. SNR trade-offs.
+            </p>
+            <div class="tags">
+              <span class="tag">Communications</span>
+              <span class="tag">Simulation</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>FPGA/VHDL Verification</h3>
+            <p>
+              Developed and tested small digital designs in VHDL to prepare for industry
+              verification workflows.
+            </p>
+            <div class="tags">
+              <span class="tag">FPGA</span>
+              <span class="tag">VHDL</span>
+              <span class="tag">Verification</span>
+            </div>
+          </article>
+
         </div>
-        <p>B.S. in Electrical Engineering, 2027 (expected)</p>
-        <p>
-          Relevant Coursework: Digital Communications, Signal Processing, Radar Systems, FPGA Design, Machine Learning,
-          Probability & Statistics.
+      </section>
+
+      <!-- ---------- Education ---------- -->
+      <section id="education" class="section-card">
+        <h2>Education</h2>
+
+        <article class="entry">
+          <div class="entry-header">
+            <img src="assets/ucsb_seal_square.png" alt="UC Santa Barbara seal" class="entry-logo" />
+            <div class="entry-heading">
+              <h3>University of California, Santa Barbara</h3>
+              <p class="entry-subtitle">B.S. in Electrical Engineering</p>
+            </div>
+            <span class="entry-date">Expected Jun 2027</span>
+          </div>
+          <p>
+            <strong>Relevant coursework:</strong> Digital Communications, Signal Processing,
+            Radar Systems, FPGA Design, Machine Learning, Probability &amp; Statistics.
+          </p>
+        </article>
+      </section>
+
+      <!-- ---------- Publications & Presentations (placeholder) ---------- -->
+      <section id="publications" class="section-card">
+        <h2>Publications &amp; Presentations</h2>
+        <p class="placeholder-note">
+          Coming soon &mdash; publications and presentations from ongoing research will be listed here.
         </p>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Contact section -->
-  <section id="contact" class="section section-alt">
-    <div class="container section-content">
-      <h2>Contact</h2>
-      <p>
-        Feel free to reach out if you’d like to chat about research, projects or potential collaborations.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:your.email@domain.com" class="contact-icon">Email</a>
-        <a href="https://github.com/yourusername" class="contact-icon" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/yourusername" class="contact-icon" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </section>
+      <!-- ---------- Contact ---------- -->
+      <section id="contact" class="section-card">
+        <h2>Contact</h2>
+        <p>
+          Feel free to reach out if you'd like to chat about research, projects, or potential collaborations.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:josef@ucsb.edu" class="contact-button">Email</a>
+          <a href="https://github.com/yourusername" class="contact-button" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/yourusername" class="contact-button" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </section>
 
-    <!-- Close main content and layout wrapper -->
     </main>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Josef Ullrich. All rights reserved.</p>
-    </div>
-  </footer>
 </body>
 </html>
