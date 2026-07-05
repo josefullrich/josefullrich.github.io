@@ -93,7 +93,7 @@ a {
   object-fit: cover;
   /* ...positioned so the crop skips the hedge above the head    */
   /* and keeps the face centered with the shirt and tie visible. */
-  object-position: 50% 100%;
+  object-position: 50% 60%;
 
   display: block;
   margin: 0 auto 1rem;
