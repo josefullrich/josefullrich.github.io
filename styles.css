@@ -89,10 +89,11 @@ a {
   width: 130px;
   height: 130px;
 
-  /* Crop the tall portrait photo to fill the square...       */
+  /* Crop the tall portrait photo to fill the square...          */
   object-fit: cover;
-  /* ...and anchor the crop to the top, where the face is     */
-  object-position: 50% 0%;
+  /* ...positioned so the crop skips the hedge above the head    */
+  /* and keeps the face centered with the shirt and tie visible. */
+  object-position: 50% 68%;
 
   display: block;
   margin: 0 auto 1rem;
