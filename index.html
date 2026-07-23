@@ -87,51 +87,77 @@
       </section>
 
       <!-- ---------- Research ---------- -->
+      <!--
+        Collapsible entry pattern (reused across the whole site):
+
+        <article class="entry is-open?">          the row + its hidden details
+          <h3 class="entry-row">                   heading keeps document semantics
+            <button class="entry-toggle"           the WHOLE row is one big button
+                    aria-expanded="true/false"
+                    aria-controls="id-of-details">
+              logo | left column (org/title) | right column (role/date) | chevron
+            </button>
+          </h3>
+          <div class="entry-details" id="...">    animated open/close wrapper
+            <div class="entry-details-inner">     actual bullet points, tags, figures
+          </div>
+        </article>
+
+        script.js wires up every .entry-toggle button automatically.
+      -->
       <section id="research" class="section-card">
         <h2>Research</h2>
 
-        <article class="entry">
-          <div class="entry-header">
-            <img src="assets/ucsb_seal_square.png" alt="UC Santa Barbara seal" class="entry-logo" />
-            <div class="entry-heading">
-              <h3>Wireless Digital Twins for Cellular MIMO Localization</h3>
-              <p class="entry-subtitle">
-                Undergraduate Researcher, UCSB Wireless Communications and Sensornets Lab (WCSL)<br />
-                Advisor: Prof. Upamanyu Madhow
+        <!-- Current research: expanded by default (class "is-open" + aria-expanded="true") -->
+        <article class="entry is-open">
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="true" aria-controls="research-wcsl-details">
+              <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
+              <span class="entry-left">
+                <span class="entry-title">Wireless Digital Twins for Cellular MIMO Localization</span>
+                <span class="entry-subtitle">UCSB Wireless Communications and Sensornets Lab (WCSL) &middot; Advisor: Prof. Upamanyu Madhow</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-role">Undergraduate Researcher</span>
+                <span class="entry-date">2025 &ndash; Present</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <div class="entry-details" id="research-wcsl-details">
+            <div class="entry-details-inner">
+              <p>
+                We are developing AI/ML-based positioning algorithms for realistic urban environments,
+                using NVIDIA Sionna to generate synthetic channel data from site-specific wireless
+                digital twins. Alongside the algorithmic work, we are interested in the fundamental
+                estimation-theoretic limits on what any positioning system can achieve in these settings.
+                The primary focus is FR3 bands.
               </p>
+              <ul>
+                <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing.</li>
+                <li>Built preprocessing pipelines for multi-base-station channel tensors and position labels.</li>
+                <li>Integrated Overture Maps building-height data to replace missing OSM heights and improve simulation accuracy.</li>
+              </ul>
+
+              <!-- Research figure: kept at a controlled width so it never dominates the page -->
+              <figure class="entry-figure">
+                <img src="assets/researchex.png"
+                     alt="Simulated urban deployment showing building heights, base stations, and transmitter sampling locations" />
+                <figcaption>
+                  Site-specific digital twin of an urban block: building footprints with roof heights,
+                  four base stations, and 5,000 sampled transmitter locations used for dataset generation.
+                </figcaption>
+              </figure>
+
+              <div class="tags">
+                <span class="tag">Wireless Digital Twin</span>
+                <span class="tag">Localization</span>
+                <span class="tag">CNN</span>
+                <span class="tag">Beamforming</span>
+                <span class="tag">Ray Tracing</span>
+              </div>
             </div>
-            <span class="entry-date">2025 &ndash; Present</span>
-          </div>
-
-          <p>
-            We are developing AI/ML-based positioning algorithms for realistic urban environments,
-            using NVIDIA Sionna to generate synthetic channel data from site-specific wireless
-            digital twins. Alongside the algorithmic work, we are interested in the fundamental
-            estimation-theoretic limits on what any positioning system can achieve in these settings.
-            The primary focus is FR3 bands.
-          </p>
-          <ul>
-            <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing.</li>
-            <li>Built preprocessing pipelines for multi-base-station channel tensors and position labels.</li>
-            <li>Integrated Overture Maps building-height data to replace missing OSM heights and improve simulation accuracy.</li>
-          </ul>
-
-          <!-- Research figure: kept at a controlled width so it never dominates the page -->
-          <figure class="entry-figure">
-            <img src="assets/researchex.png"
-                 alt="Simulated urban deployment showing building heights, base stations, and transmitter sampling locations" />
-            <figcaption>
-              Site-specific digital twin of an urban block: building footprints with roof heights,
-              four base stations, and 5,000 sampled transmitter locations used for dataset generation.
-            </figcaption>
-          </figure>
-
-          <div class="tags">
-            <span class="tag">Wireless Digital Twin</span>
-            <span class="tag">Localization</span>
-            <span class="tag">CNN</span>
-            <span class="tag">Beamforming</span>
-            <span class="tag">Ray Tracing</span>
           </div>
         </article>
       </section>
@@ -141,122 +167,266 @@
         <h2>Experience</h2>
 
         <article class="entry">
-          <div class="entry-header">
-            <img src="assets/northropgrumman.png" alt="Northrop Grumman logo" class="entry-logo" />
-            <div class="entry-heading">
-              <h3>Digital Engineering Internship</h3>
-              <p class="entry-subtitle">Northrop Grumman</p>
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="exp-ng-digital-details">
+              <img src="assets/northropgrumman.png" alt="" class="entry-logo" />
+              <span class="entry-left">
+                <span class="entry-title">Northrop Grumman</span>
+                <span class="entry-subtitle">Digital Engineering</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-role">Digital Engineering Intern</span>
+                <span class="entry-date">Jun 2026 &ndash; Present</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <div class="entry-details" id="exp-ng-digital-details">
+            <div class="entry-details-inner">
+              <ul>
+                <li>Focused on FPGA/VHDL, digital design, and module verification.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">FPGA</span>
+                <span class="tag">VHDL</span>
+                <span class="tag">Verification</span>
+              </div>
             </div>
-            <span class="entry-date">Jun 2026 &ndash; Present</span>
-          </div>
-          <ul>
-            <li>Focused on FPGA/VHDL, digital design, and module verification.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">FPGA</span>
-            <span class="tag">VHDL</span>
-            <span class="tag">Verification</span>
           </div>
         </article>
 
-        <hr class="entry-divider" />
-
         <article class="entry">
-          <div class="entry-header">
-            <img src="assets/ucsb_seal_square.png" alt="UC Santa Barbara seal" class="entry-logo" />
-            <div class="entry-heading">
-              <h3>Undergraduate Researcher</h3>
-              <p class="entry-subtitle">UCSB Wireless Communications and Sensornets Lab</p>
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="exp-wcsl-details">
+              <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
+              <span class="entry-left">
+                <span class="entry-title">UC Santa Barbara</span>
+                <span class="entry-subtitle">Wireless Communications and Sensornets Lab</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-role">Undergraduate Researcher</span>
+                <span class="entry-date">2025 &ndash; Present</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <div class="entry-details" id="exp-wcsl-details">
+            <div class="entry-details-inner">
+              <ul>
+                <li>AI/ML-based localization using wireless digital twins and ray-traced MIMO channel data.</li>
+                <li>Generated and processed multi-base-station datasets.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Research</span>
+                <span class="tag">Localization</span>
+                <span class="tag">Digital Twin</span>
+              </div>
             </div>
-            <span class="entry-date">2025 &ndash; Present</span>
-          </div>
-          <ul>
-            <li>AI/ML-based localization using wireless digital twins and ray-traced MIMO channel data.</li>
-            <li>Generated and processed multi-base-station datasets.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Research</span>
-            <span class="tag">Localization</span>
-            <span class="tag">Digital Twin</span>
           </div>
         </article>
 
-        <hr class="entry-divider" />
-
         <article class="entry">
-          <div class="entry-header">
-            <img src="assets/northropgrumman.png" alt="Northrop Grumman logo" class="entry-logo" />
-            <div class="entry-heading">
-              <h3>Systems Engineering Internship</h3>
-              <p class="entry-subtitle">Northrop Grumman</p>
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="exp-ng-systems-details">
+              <img src="assets/northropgrumman.png" alt="" class="entry-logo" />
+              <span class="entry-left">
+                <span class="entry-title">Northrop Grumman</span>
+                <span class="entry-subtitle">Mission Systems</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-role">Systems Engineering Intern</span>
+                <span class="entry-date">Jun &ndash; Sep 2025</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <div class="entry-details" id="exp-ng-systems-details">
+            <div class="entry-details-inner">
+              <ul>
+                <li>Worked in mission systems and communications environments.</li>
+                <li>Gained exposure to verification, RF/communications modeling, and multidisciplinary engineering workflows.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Systems Engineering</span>
+              </div>
             </div>
-            <span class="entry-date">Jun &ndash; Sep 2025</span>
-          </div>
-          <ul>
-            <li>Worked in mission systems and communications environments.</li>
-            <li>Gained exposure to verification, RF/communications modeling, and multidisciplinary engineering workflows.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Systems Engineering</span>
           </div>
         </article>
       </section>
 
       <!-- ---------- Projects ---------- -->
+      <!-- Projects use the same collapsible rows, just without a logo
+           (the "no-logo" class removes the reserved logo space). -->
       <section id="projects" class="section-card">
         <h2>Projects</h2>
-        <div class="project-grid">
 
-          <article class="project-card">
-            <h3>Two-Microphone Bearing Estimation</h3>
-            <p>
-              Implemented cross-correlation and time-delay-of-arrival algorithms to estimate
-              bearing with minimal hardware.
-            </p>
-            <div class="tags">
-              <span class="tag">Signal Processing</span>
-              <span class="tag">Audio</span>
+        <article class="entry no-logo project-entry">
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="proj-bearing-details">
+              <span class="entry-left">
+                <span class="entry-title">Two-Microphone Bearing Estimation</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-date">Signal Processing &middot; Audio</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <!-- Add this PDF to assets/pdfs/ when it is ready to share. -->
+          <a
+            class="project-pdf-button"
+            href="assets/pdfs/two-microphone-bearing-estimation.pdf"
+            download
+            aria-label="Download the Two-Microphone Bearing Estimation project PDF"
+            title="Download project PDF"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6M12 12v6m0 0-3-3m3 3 3-3"/>
+            </svg>
+          </a>
+
+          <div class="entry-details" id="proj-bearing-details">
+            <div class="entry-details-inner">
+              <p>
+                Implemented cross-correlation and time-delay-of-arrival algorithms to estimate
+                bearing with minimal hardware.
+              </p>
+              <div class="tags">
+                <span class="tag">Signal Processing</span>
+                <span class="tag">Audio</span>
+              </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <h3>Ground Penetrating Radar Imaging</h3>
-            <p>
-              Processed FMCW radar data to create range profiles and depth images using IFFT
-              and signal processing techniques.
-            </p>
-            <div class="tags">
-              <span class="tag">Radar</span>
-              <span class="tag">Imaging</span>
+        <article class="entry no-logo project-entry">
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="proj-gpr-details">
+              <span class="entry-left">
+                <span class="entry-title">Ground Penetrating Radar Imaging</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-date">Radar &middot; Imaging</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <!-- Add this PDF to assets/pdfs/ when it is ready to share. -->
+          <a
+            class="project-pdf-button"
+            href="assets/pdfs/ground-penetrating-radar-imaging.pdf"
+            download
+            aria-label="Download the Ground Penetrating Radar Imaging project PDF"
+            title="Download project PDF"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6M12 12v6m0 0-3-3m3 3 3-3"/>
+            </svg>
+          </a>
+
+          <div class="entry-details" id="proj-gpr-details">
+            <div class="entry-details-inner">
+              <p>
+                Processed FMCW radar data to create range profiles and depth images using IFFT
+                and signal processing techniques.
+              </p>
+              <div class="tags">
+                <span class="tag">Radar</span>
+                <span class="tag">Imaging</span>
+              </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <h3>Digital Communications Simulations</h3>
-            <p>
-              Simulated BPSK/QPSK/QAM modulation schemes, pulse shaping, and matched filtering;
-              explored bandwidth vs. SNR trade-offs.
-            </p>
-            <div class="tags">
-              <span class="tag">Communications</span>
-              <span class="tag">Simulation</span>
+        <article class="entry no-logo project-entry">
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="proj-comms-details">
+              <span class="entry-left">
+                <span class="entry-title">Digital Communications Simulations</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-date">Communications &middot; Simulation</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <!-- Add this PDF to assets/pdfs/ when it is ready to share. -->
+          <a
+            class="project-pdf-button"
+            href="assets/pdfs/digital-communications-simulations.pdf"
+            download
+            aria-label="Download the Digital Communications Simulations project PDF"
+            title="Download project PDF"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6M12 12v6m0 0-3-3m3 3 3-3"/>
+            </svg>
+          </a>
+
+          <div class="entry-details" id="proj-comms-details">
+            <div class="entry-details-inner">
+              <p>
+                Simulated BPSK/QPSK/QAM modulation schemes, pulse shaping, and matched filtering;
+                explored bandwidth vs. SNR trade-offs.
+              </p>
+              <div class="tags">
+                <span class="tag">Communications</span>
+                <span class="tag">Simulation</span>
+              </div>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <h3>FPGA/VHDL Verification</h3>
-            <p>
-              Developed and tested small digital designs in VHDL to prepare for industry
-              verification workflows.
-            </p>
-            <div class="tags">
-              <span class="tag">FPGA</span>
-              <span class="tag">VHDL</span>
-              <span class="tag">Verification</span>
+        <article class="entry no-logo project-entry">
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="proj-fpga-details">
+              <span class="entry-left">
+                <span class="entry-title">FPGA/VHDL Verification</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-date">FPGA &middot; Digital Design</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <!-- Add this PDF to assets/pdfs/ when it is ready to share. -->
+          <a
+            class="project-pdf-button"
+            href="assets/pdfs/fpga-vhdl-verification.pdf"
+            download
+            aria-label="Download the FPGA/VHDL Verification project PDF"
+            title="Download project PDF"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6M12 12v6m0 0-3-3m3 3 3-3"/>
+            </svg>
+          </a>
+
+          <div class="entry-details" id="proj-fpga-details">
+            <div class="entry-details-inner">
+              <p>
+                Developed and tested small digital designs in VHDL to prepare for industry
+                verification workflows.
+              </p>
+              <div class="tags">
+                <span class="tag">FPGA</span>
+                <span class="tag">VHDL</span>
+                <span class="tag">Verification</span>
+              </div>
             </div>
-          </article>
-
-        </div>
+          </div>
+        </article>
       </section>
 
       <!-- ---------- Education ---------- -->
@@ -264,22 +434,35 @@
         <h2>Education</h2>
 
         <article class="entry">
-          <div class="entry-header">
-            <img src="assets/ucsb_seal_square.png" alt="UC Santa Barbara seal" class="entry-logo" />
-            <div class="entry-heading">
-              <h3>University of California, Santa Barbara</h3>
-              <p class="entry-subtitle">B.S. in Electrical Engineering</p>
+          <h3 class="entry-row">
+            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="edu-ucsb-details">
+              <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
+              <span class="entry-left">
+                <span class="entry-title">University of California, Santa Barbara</span>
+                <span class="entry-subtitle">College of Engineering</span>
+              </span>
+              <span class="entry-right">
+                <span class="entry-role">B.S. Electrical Engineering</span>
+                <span class="entry-date">Expected Jun 2027</span>
+              </span>
+              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </h3>
+
+          <div class="entry-details" id="edu-ucsb-details">
+            <div class="entry-details-inner">
+              <p>
+                <strong>Relevant coursework:</strong> Digital Communications, Signal Processing,
+                Radar Systems, FPGA Design, Machine Learning, Probability &amp; Statistics.
+              </p>
             </div>
-            <span class="entry-date">Expected Jun 2027</span>
           </div>
-          <p>
-            <strong>Relevant coursework:</strong> Digital Communications, Signal Processing,
-            Radar Systems, FPGA Design, Machine Learning, Probability &amp; Statistics.
-          </p>
         </article>
       </section>
 
       <!-- ---------- Publications & Presentations (placeholder) ---------- -->
+      <!-- When real publications exist, reuse the same collapsible entry
+           pattern here (abstract / links go inside .entry-details). -->
       <section id="publications" class="section-card">
         <h2>Publications &amp; Presentations</h2>
         <p class="placeholder-note">

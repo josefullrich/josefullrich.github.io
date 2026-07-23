@@ -248,47 +248,210 @@ a {
   font-weight: 500;
 }
 
-/* ---------- Entries (research / experience / education) ---------- */
+/* ============================================================
+   Collapsible entries (research / experience / projects / education)
 
-.entry-header {
+   Each entry is one clickable row (a real <button>) followed by a
+   details panel that smoothly expands and collapses. The open/close
+   state is a single class, "is-open", toggled by script.js.
+   ============================================================ */
+
+/* Thin divider line between entries in the same section */
+.entry + .entry {
+  border-top: 1px solid var(--border-color);
+}
+
+/* The <h3> wrapper only exists for document semantics; the button
+   inside it does all the visual work. */
+.entry-row {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* The whole row is one big button so the entire row is clickable. */
+.entry-toggle {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.9rem 0.5rem;
+
+  /* Strip default button styling so it blends into the card */
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.entry-toggle:hover {
+  background-color: var(--bg-color);
+}
+
+/* Visible focus ring for keyboard users */
+.entry-toggle:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ---------- Project PDF buttons ---------- */
+
+/* Each project keeps its PDF action in the upper-right corner. */
+.project-entry {
+  position: relative;
+}
+
+/* Make room for the PDF action without overlapping the chevron. */
+.project-entry .entry-toggle {
+  padding-right: 3.5rem;
+}
+
+.project-entry .entry-chevron {
+  margin-right: 2.5rem;
+}
+
+/* Compact icon button inspired by a document/download control. */
+.project-pdf-button {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.project-pdf-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.project-pdf-button:hover {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+  color: var(--accent-color);
+}
+
+.project-pdf-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /* Small, consistent logo size for all organizations */
 .entry-logo {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   border-radius: 8px;
 }
 
-.entry-heading {
+/* Left column: organization / project title (bold) + subtitle */
+.entry-left {
   flex: 1;
+  min-width: 0; /* allows long titles to wrap instead of overflowing */
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 }
 
-.entry-heading h3 {
-  font-size: 1.05rem;
+.entry-title {
+  font-size: 1rem;
   font-weight: 600;
   color: var(--heading-color);
   line-height: 1.4;
 }
 
 .entry-subtitle {
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   color: var(--text-muted);
-  margin-top: 0.15rem;
+}
+
+/* Right column: role + date, right-aligned next to the chevron */
+.entry-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  text-align: right;
+}
+
+.entry-role {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  line-height: 1.4;
 }
 
 .entry-date {
-  flex-shrink: 0;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   white-space: nowrap;
-  padding-top: 0.2rem;
+}
+
+/* Chevron arrow: points right when collapsed, rotates down when open */
+.entry-chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.entry.is-open .entry-chevron {
+  transform: rotate(90deg);
+}
+
+/* --- Expand/collapse animation ---
+   The details panel is a CSS grid whose single row animates between
+   0fr (fully collapsed) and 1fr (natural height). This gives a smooth
+   height transition without any JavaScript measurements. */
+.entry-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.entry.is-open .entry-details {
+  grid-template-rows: 1fr;
+}
+
+/* The inner wrapper must hide its overflow for the trick to work */
+.entry-details-inner {
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* Indent the details so they line up under the title, past the logo,
+   and give them breathing room when open */
+.entry.is-open .entry-details-inner {
+  padding: 0.25rem 0.5rem 1.1rem calc(44px + 1.5rem);
+}
+
+/* Projects have no logo, so details align with the row padding only */
+.entry.no-logo.is-open .entry-details-inner {
+  padding-left: 0.5rem;
+}
+
+/* Fade the details in/out along with the height animation */
+.entry-details-inner > * {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.entry.is-open .entry-details-inner > * {
+  opacity: 1;
+  transition-delay: 0.1s;
 }
 
 .entry ul {
@@ -300,10 +463,8 @@ a {
   margin-bottom: 0.35rem;
 }
 
-.entry-divider {
-  border: none;
-  border-top: 1px solid var(--border-color);
-  margin: 1.75rem 0;
+.entry-details-inner > :last-child {
+  margin-bottom: 0;
 }
 
 /* ---------- Research figure ---------- */
@@ -325,37 +486,6 @@ a {
   color: var(--text-muted);
   line-height: 1.5;
   text-align: center;
-}
-
-/* ---------- Projects grid ---------- */
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1.25rem;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  background-color: var(--bg-color);
-}
-
-.project-card h3 {
-  font-size: 0.98rem;
-  font-weight: 600;
-  color: var(--heading-color);
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-.project-card p {
-  font-size: 0.88rem;
-  flex: 1; /* pushes tags to the bottom so cards align */
-  margin-bottom: 0.9rem;
 }
 
 /* ---------- Tags ---------- */
@@ -451,14 +581,43 @@ a {
     padding: 1.5rem 1.25rem;
   }
 
-  /* Let the date wrap below the title on narrow screens */
-  .entry-header {
+  /* On narrow screens the row wraps: logo + titles stay on the first
+     line, and the role/date column drops underneath, aligned left. */
+  .entry-toggle {
     flex-wrap: wrap;
+    gap: 0.35rem 0.85rem;
+    padding: 0.85rem 0.35rem;
   }
 
-  .entry-date {
+  .entry-left {
+    /* Leave room for the chevron on the first line */
+    flex: 1 1 calc(100% - 44px - 18px - 2rem);
+  }
+
+  .entry-right {
+    /* Full-width second line under the logo/title.
+       "order" moves it after the chevron so the chevron
+       stays up on the first line next to the title. */
+    order: 10;
     width: 100%;
-    padding-left: calc(48px + 1rem); /* aligns under the title, past the logo */
-    padding-top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: calc(44px + 0.85rem); /* aligns under the title, past the logo */
+    text-align: left;
+  }
+
+  .entry.no-logo .entry-right {
+    padding-left: 0;
+  }
+
+  .entry.no-logo .entry-left {
+    flex: 1 1 calc(100% - 18px - 1rem);
+  }
+
+  /* Details indent shrinks on mobile so text isn't squeezed */
+  .entry.is-open .entry-details-inner {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
   }
 }
