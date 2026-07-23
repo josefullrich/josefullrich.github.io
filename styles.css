@@ -305,13 +305,9 @@ a {
   position: relative;
 }
 
-/* Make room for the PDF action without overlapping the chevron. */
-.project-entry .entry-toggle {
-  padding-right: 3.5rem;
-}
-
+/* Leave a compact gap between the chevron and PDF action. */
 .project-entry .entry-chevron {
-  margin-right: 2.5rem;
+  margin-right: 2.25rem;
 }
 
 /* Compact icon button inspired by a document/download control. */
@@ -321,18 +317,20 @@ a {
   right: 0.5rem;
   display: grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.9rem;
+  height: 1.9rem;
   border: 1px solid transparent;
   border-radius: 6px;
   color: var(--text-muted);
   text-decoration: none;
+  z-index: 1;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .project-pdf-button svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .project-pdf-button:hover {
