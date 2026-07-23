@@ -306,7 +306,7 @@ a {
 }
 
 /* Leave a compact gap between the chevron and PDF action. */
-.project-entry .entry-chevron {
+.project-entry.has-pdf .entry-chevron {
   margin-right: 2.25rem;
 }
 
