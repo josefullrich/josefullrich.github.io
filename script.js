@@ -58,26 +58,72 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
   const sections = document.querySelectorAll('.section-card');
 
-  // Watch each section; when one crosses the top part of the viewport,
-  // mark its matching nav link as active.
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+  function setActiveNavLink(sectionId) {
+    navLinks.forEach((link) => {
+      const linksToSection = link.getAttribute('href') === `#${sectionId}`;
+      link.classList.toggle('active', linksToSection);
+    });
+  }
 
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach((link) => {
-          const matches = link.getAttribute('href') === `#${id}`;
-          link.classList.toggle('active', matches);
-        });
-      });
-    },
-    {
-      // Treat a section as "current" when it is in the top 40% of the screen
-      rootMargin: '0px 0px -60% 0px',
-      threshold: 0,
+  function updateActiveNavLink() {
+    // Use a point 30% down the viewport to decide which section is current.
+    const activationPoint = window.scrollY + window.innerHeight * 0.3;
+    let activeSection = sections[0];
+
+    sections.forEach((section) => {
+      if (section.offsetTop <= activationPoint) {
+        activeSection = section;
+      }
+    });
+
+    // At the very bottom, always select the final section (Contact).
+    const isAtPageBottom =
+      window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+
+    if (isAtPageBottom) {
+      activeSection = sections[sections.length - 1];
     }
+
+    if (activeSection) {
+      setActiveNavLink(activeSection.id);
+    }
+  }
+
+  let clickedSectionId = null;
+  let scrollEndTimer;
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      clickedSectionId = link.getAttribute('href').slice(1);
+      setActiveNavLink(clickedSectionId);
+
+      // Preserve the clicked item while the browser performs smooth scrolling.
+      clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(() => {
+        setActiveNavLink(clickedSectionId);
+        clickedSectionId = null;
+      }, 500);
+    });
+  });
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      clearTimeout(scrollEndTimer);
+
+      if (!clickedSectionId) {
+        updateActiveNavLink();
+        return;
+      }
+
+      // Smooth scrolling has ended when no new scroll event arrives briefly.
+      scrollEndTimer = setTimeout(() => {
+        setActiveNavLink(clickedSectionId);
+        clickedSectionId = null;
+      }, 150);
+    },
+    { passive: true }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  updateActiveNavLink();
 });
