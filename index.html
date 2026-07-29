@@ -7,7 +7,7 @@
 
   <!-- External stylesheet -->
   <!-- Version query prevents GitHub Pages from serving an older cached design. -->
-  <link rel="stylesheet" href="styles.css?v=20260722-4" />
+  <link rel="stylesheet" href="styles.css?v=20260728-1" />
 
   <!-- Google Fonts: Inter for clean, professional typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -135,22 +135,33 @@
                 The primary focus is FR3 bands. My personal contributions include:
               </p>
               <ul>
-                <li>Integrated Overture Maps building-height data to replace missing OSM heights and improve Digital Twin accuracy.</li>
-                <li>Code and test various CNN positioning algorithms on the generated datasets, comparing performance and training efficiency.</li>
-                <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing.</li>
-                <li>Supported preprocessing pipeline construction for multi-base-station channel tensors and position labels.</li>
-                <li>Studied related papers and created presentations on the topic for the lab, to keep up with the latest research to help guide the project.</li>
+                <li>Integrated Overture Maps building-height data to replace missing OSM heights, improving wireless digital twin accuracy.</li>
+                <li>Implemented and evaluated CNN-based positioning algorithms, comparing performance and training efficiency.</li>
+                <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing with NVIDIA Sionna.</li>
+                <li>Supported development of preprocessing pipelines for multi-base-station channel tensors and position labels.</li>
+                <li>Surveyed recent localization literature and presented findings to the lab to inform of ongoing research.</li>
               </ul>
 
-              <!-- Research figure: kept at a controlled width so it never dominates the page -->
-              <figure class="entry-figure">
-                <img src="assets/researchex.png"
-                     alt="Simulated urban deployment showing building heights, base stations, and transmitter sampling locations" />
-                <figcaption>
-                  Site-specific digital twin of an urban block: building footprints with roof heights,
-                  four base stations, and 5,000 sampled transmitter locations used for dataset generation.
-                </figcaption>
-              </figure>
+              <!-- Research figures appear side by side on larger screens. -->
+              <div class="entry-figure-grid">
+                <figure class="entry-figure">
+                  <img src="assets/researchex.png"
+                       alt="Simulated urban deployment showing building heights, base stations, and transmitter sampling locations" />
+                  <figcaption>
+                    Site-specific digital twin with building heights, four base stations,
+                    and 5,000 transmitter locations used for dataset generation.
+                  </figcaption>
+                </figure>
+
+                <figure class="entry-figure">
+                  <img src="assets/researchex2.png"
+                       alt="Training and validation mean absolute localization error plotted across 150 epochs" />
+                  <figcaption>
+                    Training and validation mean absolute error across 150 epochs
+                    for a CNN-based positioning model.
+                  </figcaption>
+                </figure>
+              </div>
 
               <div class="tags">
                 <span class="tag">Wireless Digital Twin</span>

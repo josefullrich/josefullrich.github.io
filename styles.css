@@ -479,12 +479,27 @@ a {
 
 /* ---------- Research figure ---------- */
 
+.entry-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
 .entry-figure {
   margin: 1.25rem auto;
   max-width: 560px; /* keeps the figure from dominating the page */
 }
 
+.entry-figure-grid .entry-figure {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
 .entry-figure img {
+  display: block;
   width: 100%;
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -589,6 +604,10 @@ a {
 
   .section-card {
     padding: 1.5rem 1.25rem;
+  }
+
+  .entry-figure-grid {
+    grid-template-columns: 1fr;
   }
 
   /* On narrow screens the row wraps: logo + titles stay on the first
