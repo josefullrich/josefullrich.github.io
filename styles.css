@@ -374,23 +374,69 @@ a {
   outline-offset: 2px;
 }
 
-/* ---------- Project PDF buttons ---------- */
+/* ---------- Project cards ---------- */
 
-/* Each project keeps its PDF action in the upper-right corner. */
-.project-entry {
-  position: relative;
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-/* Leave a compact gap between the chevron and PDF action. */
-.project-entry.has-pdf .entry-chevron {
-  margin-right: 2.25rem;
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 220px;
+  padding: 1.35rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* Compact icon button inspired by a document/download control. */
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-color) 35%, var(--border-color));
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.project-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.project-card-heading > div {
+  min-width: 0;
+}
+
+.project-card h3 {
+  color: var(--heading-color);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.project-card .project-card-meta {
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.project-card .project-card-description {
+  margin: 0 0 1.15rem;
+  line-height: 1.65;
+}
+
+.project-card .tags {
+  margin-top: auto;
+}
+
 .project-pdf-button {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.5rem;
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
   width: 1.9rem;
@@ -399,7 +445,6 @@ a {
   border-radius: 6px;
   color: var(--text-muted);
   text-decoration: none;
-  z-index: 1;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
@@ -722,6 +767,14 @@ a {
 
   .entry-figure-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: 0;
   }
 
   /* On narrow screens the row wraps: logo + titles stay on the first
