@@ -357,7 +357,7 @@
       <!-- Projects use the same collapsible rows, just without a logo
            (the "no-logo" class removes the reserved logo space). -->
       <section id="projects" class="section-card">
-        <h2>Projects</h2>
+        <h2>Selected Projects</h2>
 
         <article class="entry no-logo project-entry has-pdf">
           <h3 class="entry-row">
@@ -366,7 +366,7 @@
                 <span class="entry-title">Ground-Penetrating Radar Imaging</span>
               </span>
               <span class="entry-right">
-                <span class="entry-date">Radar &middot; Imaging</span>
+                <span class="entry-date">MATLAB &middot; FMCW Radar</span>
               </span>
               <svg class="entry-chevron" width="18" height="18" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
@@ -375,8 +375,8 @@
           <!-- Add this PDF to assets/pdfs/ when it is ready to share. -->
           <a
             class="project-pdf-button"
-            href="assets/pdfs/ground_penetrating_radar.pdf"
-            download
+            href="assets/pdfs/ground-penetrating-radar.pdf"
+            download="ground-penetrating-radar.pdf"
             aria-label="Download the Ground-Penetrating Radar Imaging project PDF"
             title="Download project PDF"
           >
@@ -389,12 +389,13 @@
           <div class="entry-details" id="proj-gpr-details">
             <div class="entry-details-inner">
               <p>
-                Processed FMCW radar data to create range profiles and depth images using IFFT
-                and signal processing techniques.
+                Reconstructed subsurface pavement images from FMCW radar data using inverse FFT
+                processing in MATLAB, identifying rebar approximately 10&ndash;15 cm below the surface.
               </p>
               <div class="tags">
-                <span class="tag">Radar</span>
-                <span class="tag">Imaging</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">FMCW Radar</span>
+                <span class="tag">Signal Processing</span>
               </div>
             </div>
           </div>
@@ -404,10 +405,10 @@
           <h3 class="entry-row">
             <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="proj-butterworth-details">
               <span class="entry-left">
-                <span class="entry-title">Butterworth Filter Design</span>
+                <span class="entry-title">Digital Highpass Butterworth Filter</span>
               </span>
               <span class="entry-right">
-                <span class="entry-date">Filter Design &middot; Signal Processing</span>
+                <span class="entry-date">MATLAB &middot; DSP</span>
               </span>
               <svg class="entry-chevron" width="18" height="18" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
@@ -416,9 +417,9 @@
           <!-- Add this PDF to assets/pdfs/ when it is ready to share. -->
           <a
             class="project-pdf-button"
-            href="assets/pdfs/butterworth_filter.pdf"
-            download
-            aria-label="Download the Butterworth Filter Design project PDF"
+            href="assets/pdfs/butterworth-filter.pdf"
+            download="butterworth-filter.pdf"
+            aria-label="Download the Digital Highpass Butterworth Filter project PDF"
             title="Download project PDF"
           >
             <svg width="18" height="18" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -430,13 +431,13 @@
           <div class="entry-details" id="proj-butterworth-details">
             <div class="entry-details-inner">
               <p>
-                Designed and analyzed a Butterworth filter to meet frequency-response requirements,
-                then validated its cutoff behavior and attenuation.
+                Designed and verified a digital highpass Butterworth filter using analog lowpass
+                conversion and the bilinear transformation.
               </p>
               <div class="tags">
-                <span class="tag">Butterworth Filter</span>
-                <span class="tag">Circuit Design</span>
-                <span class="tag">Signal Processing</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">DSP</span>
+                <span class="tag">Digital Filters</span>
               </div>
             </div>
           </div>
