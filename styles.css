@@ -472,7 +472,7 @@ a {
   border-radius: 50%;
   background-color: var(--bg-color);
   color: var(--heading-color);
-  transition: transform 0.3s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: transform 0.6s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .entry-toggle:hover .entry-chevron {
@@ -493,7 +493,7 @@ a {
 .entry-details {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
+  transition: grid-template-rows 0.7s ease;
 }
 
 .entry.is-open .entry-details {
@@ -520,12 +520,12 @@ a {
 /* Fade the details in/out along with the height animation */
 .entry-details-inner > * {
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.5s ease;
 }
 
 .entry.is-open .entry-details-inner > * {
   opacity: 1;
-  transition-delay: 0.1s;
+  transition-delay: 0.2s;
 }
 
 .entry ul {
@@ -630,7 +630,7 @@ a {
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1;
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease;
 }
 
 .coursework-group[open] summary::before {
