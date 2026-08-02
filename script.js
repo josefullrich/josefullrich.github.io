@@ -8,6 +8,7 @@
  * 3. Wire up the collapsible entries (Research, Experience,
  *    Projects, Education, ...) so clicking a row expands or
  *    collapses its details.
+ * 4. Toggle between day and night modes and remember the choice.
  */
 
 /*
@@ -44,7 +45,39 @@ function setupCollapsibleEntries() {
   });
 }
 
+function setupThemeToggle() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  const icon = toggle.querySelector('.theme-toggle-icon');
+  const label = toggle.querySelector('.theme-toggle-label');
+
+  function updateToggle(theme) {
+    const isDark = theme === 'dark';
+    document.documentElement.dataset.theme = theme;
+    toggle.setAttribute('aria-label', `Switch to ${isDark ? 'day' : 'night'} mode`);
+    if (icon) icon.textContent = isDark ? '☀' : '☾';
+    if (label) label.textContent = isDark ? 'Day mode' : 'Night mode';
+  }
+
+  updateToggle(document.documentElement.dataset.theme || 'light');
+
+  toggle.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    updateToggle(nextTheme);
+
+    try {
+      localStorage.setItem('portfolio-theme', nextTheme);
+    } catch (error) {
+      // The toggle still works when storage is unavailable.
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Day/night mode ---
+  setupThemeToggle();
+
   // --- Collapsible entries across all sections ---
   setupCollapsibleEntries();
 

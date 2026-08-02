@@ -5,9 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Josef Ullrich | Portfolio</title>
 
+  <!-- Apply the saved theme before rendering to avoid a bright flash on load. -->
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme || preferredTheme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+
   <!-- External stylesheet -->
   <!-- Version query prevents GitHub Pages from serving an older cached design. -->
-  <link rel="stylesheet" href="styles.css?v=20260728-1" />
+  <link rel="stylesheet" href="styles.css?v=20260801-1" />
 
   <!-- Google Fonts: Inter for clean, professional typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,7 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Defer JavaScript so the HTML renders first -->
-  <script src="script.js?v=20260726-1" defer></script>
+  <script src="script.js?v=20260801-1" defer></script>
 </head>
 
 <body>
@@ -32,6 +45,11 @@
         <img src="assets/headshot.png" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
         <h1 class="sidebar-name">Josef Ullrich</h1>
         <p class="sidebar-tagline">EE @ UC Santa Barbara</p>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to night mode">
+          <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle-label">Night mode</span>
+        </button>
 
         <!-- Section navigation -->
         <nav class="sidebar-nav" id="sidebar-nav">
@@ -71,9 +89,6 @@
         <p class="about-lead">
           I'm a BS EE student at UC Santa Barbara passionate about
           wireless communications and its applications in sensing and localization.
-        </p>
-        <p>
-          I'm interested in the intersection of signal processing, machine learning, and wireless communications.
         </p>
         <p>
           Currently an FPGA verification intern at Northrop Grumman and an undergraduate researcher
@@ -403,7 +418,7 @@
       <section id="contact" class="section-card">
         <h2>Contact</h2>
         <p>
-          Feel free to reach out if you'd like to chat about research, projects, or potential collaborations.
+          Feel free to reach out about research, projects, or potential collaborations.
         </p>
         <div class="contact-links">
           <a href="mailto:josef@ucsb.edu" class="contact-button">Email</a>

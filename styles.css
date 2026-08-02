@@ -11,6 +11,7 @@
  */
 
 :root {
+  color-scheme: light;
   --bg-color: #f4f4f5;          /* soft gray page background */
   --card-bg: #ffffff;           /* white cards and sidebar */
   --border-color: #e4e4e7;      /* subtle borders */
@@ -23,6 +24,27 @@
   --sidebar-width: 250px;
   --card-radius: 12px;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --button-bg: #18181b;
+  --button-text: #ffffff;
+  --image-bg: #ffffff;
+}
+
+/* Night mode swaps the shared variables so every part of the site changes. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #0f1115;
+  --card-bg: #181b21;
+  --border-color: #30343d;
+  --text-color: #d4d7dd;
+  --text-muted: #9ca3af;
+  --heading-color: #f4f4f5;
+  --accent-color: #7da2ff;
+  --tag-bg: #252d49;
+  --tag-color: #b8c8ff;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --button-bg: #f4f4f5;
+  --button-text: #18181b;
+  --image-bg: #ffffff;
 }
 
 /* ---------- Reset and base styles ---------- */
@@ -43,6 +65,7 @@ body {
   line-height: 1.65;
   color: var(--text-color);
   background-color: var(--bg-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Images should never be wider than their container */
@@ -115,6 +138,41 @@ a {
   margin-bottom: 1.75rem;
 }
 
+/* Day/night control */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 36px;
+  margin: -0.65rem auto 1.35rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.theme-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
 /* Vertical navigation links */
 .sidebar-nav {
   display: flex;
@@ -183,8 +241,8 @@ a {
   display: block;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background-color: var(--heading-color);
-  color: #ffffff;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -219,6 +277,7 @@ a {
   margin-bottom: 1.5rem;
   /* Offset so anchor links don't hide the heading behind the top edge */
   scroll-margin-top: 1.5rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .section-card h2 {
@@ -351,6 +410,7 @@ a {
   height: 44px;
   object-fit: contain;
   border-radius: 8px;
+  background-color: var(--image-bg);
 }
 
 /* Left column: organization / project title (bold) + subtitle */
