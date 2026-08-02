@@ -431,6 +431,35 @@ a {
   line-height: 1.65;
 }
 
+.project-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: -0.15rem 0 1rem;
+}
+
+.project-card-links a {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.project-card-links a:hover {
+  border-color: var(--accent-color);
+}
+
+.project-card-links a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
 .project-card .tags {
   margin-top: auto;
 }
