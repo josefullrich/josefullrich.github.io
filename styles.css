@@ -211,66 +211,38 @@ a {
   margin-top: 2rem;
 }
 
-.sidebar-contact {
+.sidebar-social {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.sidebar-contact-label {
-  margin-bottom: 0.55rem;
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.contact-primary,
-.contact-secondary {
+.social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.contact-primary {
-  min-height: 40px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border-color);
-  background-color: var(--bg-color);
-  color: var(--heading-color);
-  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  border-radius: 50%;
+  color: var(--text-color);
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.contact-primary:hover {
+.social-icon:hover {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-.contact-primary svg {
-  width: 16px;
-  height: 16px;
-}
-
-.contact-secondary {
-  justify-content: space-between;
-  margin-top: 0.45rem;
-  padding: 0.25rem 0.15rem;
-  color: var(--text-muted);
-  transition: color 0.15s ease;
-}
-
-.contact-secondary:hover {
-  color: var(--accent-color);
-}
-
-.contact-primary:focus-visible,
-.contact-secondary:focus-visible {
+.social-icon:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
+}
+
+.social-icon svg {
+  width: 17px;
+  height: 17px;
 }
 
 .resume-button {
