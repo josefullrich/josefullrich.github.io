@@ -20,7 +20,7 @@
 
   <!-- External stylesheet -->
   <!-- Version query prevents GitHub Pages from serving an older cached design. -->
-  <link rel="stylesheet" href="styles.css?v=20260801-4" />
+  <link rel="stylesheet" href="styles.css?v=20260801-6" />
 
   <!-- Google Fonts: Inter for clean, professional typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Defer JavaScript so the HTML renders first -->
-  <script src="script.js?v=20260801-3" defer></script>
+  <script src="script.js?v=20260801-4" defer></script>
 </head>
 
 <body>
@@ -125,7 +125,7 @@
               </span>
               <span class="entry-right">
                 <span class="entry-role">Undergraduate Researcher</span>
-                <span class="entry-date">2025 &ndash; Present</span>
+                <span class="entry-date">January 2026 &ndash; Present</span>
               </span>
               <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
@@ -191,7 +191,7 @@
               <img src="assets/northropgrumman.png" alt="" class="entry-logo" />
               <span class="entry-left">
                 <span class="entry-title">Northrop Grumman</span>
-                <span class="entry-subtitle">Digital Engineering</span>
+                <span class="entry-subtitle">Mission Systems</span>
               </span>
               <span class="entry-right">
                 <span class="entry-role">Digital Engineering Intern</span>
@@ -372,9 +372,9 @@
       <section id="education" class="section-card">
         <h2>Education</h2>
 
-        <article class="entry">
+        <article class="entry is-open">
           <h3 class="entry-row">
-            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="edu-ucsb-details">
+            <button class="entry-toggle" type="button" aria-expanded="true" aria-controls="edu-ucsb-details">
               <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
               <span class="entry-left">
                 <span class="entry-title">University of California, Santa Barbara</span>
@@ -390,10 +390,25 @@
 
           <div class="entry-details" id="edu-ucsb-details">
             <div class="entry-details-inner">
-              <p>
-                <strong>Relevant coursework:</strong> Digital Communications, Signal Processing,
-                Radar Systems, FPGA Design, Machine Learning, Probability &amp; Statistics.
-              </p>
+              <h4 class="coursework-title">Relevant Coursework</h4>
+
+              <details class="coursework-group" open>
+                <summary>Electrical Engineering</summary>
+                <ul>
+                  <li>Digital Communications</li>
+                  <li>Signal Processing</li>
+                  <li>Radar Systems</li>
+                  <li>FPGA Design</li>
+                </ul>
+              </details>
+
+              <details class="coursework-group">
+                <summary>Math &amp; Computing</summary>
+                <ul>
+                  <li>Machine Learning</li>
+                  <li>Probability &amp; Statistics</li>
+                </ul>
+              </details>
             </div>
           </div>
         </article>

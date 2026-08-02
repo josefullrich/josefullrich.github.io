@@ -28,7 +28,7 @@
  * support (Enter / Space) and focusability come for free.
  */
 function setupCollapsibleEntries() {
-  const toggleButtons = document.querySelectorAll('.entry-toggle');
+  const toggleButtons = document.querySelectorAll('button.entry-toggle');
 
   toggleButtons.forEach((button) => {
     const entry = button.closest('.entry');
