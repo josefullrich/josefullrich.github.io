@@ -50,14 +50,12 @@ function setupThemeToggle() {
   if (!toggle) return;
 
   const icon = toggle.querySelector('.theme-toggle-icon');
-  const label = toggle.querySelector('.theme-toggle-label');
 
   function updateToggle(theme) {
     const isDark = theme === 'dark';
     document.documentElement.dataset.theme = theme;
     toggle.setAttribute('aria-label', `Switch to ${isDark ? 'day' : 'night'} mode`);
     if (icon) icon.textContent = isDark ? '☀' : '☾';
-    if (label) label.textContent = isDark ? 'Day mode' : 'Night mode';
   }
 
   updateToggle(document.documentElement.dataset.theme || 'light');
