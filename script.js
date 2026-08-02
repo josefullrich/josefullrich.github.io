@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // At the very bottom, always select the final section (Contact).
+    // At the very bottom, always select the final section.
     const isAtPageBottom =
       window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
 

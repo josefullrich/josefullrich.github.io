@@ -206,38 +206,71 @@ a {
   font-weight: 600;
 }
 
-/* Bottom of sidebar: social icons, CV button, copyright */
+/* Bottom of sidebar: contact, CV button, copyright */
 .sidebar-bottom {
   margin-top: 2rem;
 }
 
-.sidebar-social {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
+.sidebar-contact {
   margin-bottom: 1rem;
 }
 
-.social-icon {
+.sidebar-contact-label {
+  margin-bottom: 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-primary,
+.contact-secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  gap: 0.5rem;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.social-icon:hover {
+.contact-primary {
+  min-height: 40px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--heading-color);
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.contact-primary:hover {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-.social-icon svg {
-  width: 17px;
-  height: 17px;
+.contact-primary svg {
+  width: 16px;
+  height: 16px;
+}
+
+.contact-secondary {
+  justify-content: space-between;
+  margin-top: 0.45rem;
+  padding: 0.25rem 0.15rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.contact-secondary:hover {
+  color: var(--accent-color);
+}
+
+.contact-primary:focus-visible,
+.contact-secondary:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .resume-button {
@@ -304,10 +337,6 @@ a {
 .about-lead {
   font-weight: 600;
   color: var(--heading-color);
-}
-
-.about-contact a {
-  font-weight: 500;
 }
 
 /* ============================================================
@@ -598,33 +627,6 @@ a {
 .placeholder-note {
   color: var(--text-muted);
   font-style: italic;
-}
-
-/* ---------- Contact ---------- */
-
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-}
-
-.contact-button {
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background-color: var(--bg-color);
-  color: var(--heading-color);
-  font-size: 0.88rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: border-color 0.15s ease, color 0.15s ease;
-}
-
-.contact-button:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
 }
 
 /* ---------- Responsive: stack sidebar on top for small screens ---------- */
