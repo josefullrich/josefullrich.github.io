@@ -41,7 +41,7 @@
 
   <!-- External stylesheet -->
   <!-- Version query prevents GitHub Pages from serving an older cached design. -->
-  <link rel="stylesheet" href="styles.css?v=20261010-1" />
+  <link rel="stylesheet" href="styles.css?v=20261010-3" />
 
   <!-- Google Fonts: Inter for clean, professional typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -155,22 +155,21 @@
           </h3>
 
           <div class="research-preview">
-            <figure class="research-preview-figure">
-              <img src="assets/bostontwin-cambridge-layout.png"
-                   alt="Oblique view of the BostonTwin Cambridge scene, with four labeled base stations among the buildings"
-                   width="1210" height="1042" />
-              <figcaption>BostonTwin Cambridge digital scene and the four base stations used in this example.</figcaption>
-            </figure>
             <div class="research-preview-copy">
               <p>We estimate a transmitter’s position from wireless channels observed at multiple base stations. A site-specific digital twin generates simulated signals, which we turn into beam–delay fingerprints and use to train a localization model.</p>
               <button class="research-preview-toggle" type="button" aria-expanded="false" aria-controls="research-wcsl-details"><span class="research-preview-toggle-label">Explore the pipeline and results</span> <span class="research-preview-arrow" aria-hidden="true">↓</span></button>
             </div>
+            <figure class="research-preview-figure">
+              <img src="assets/bostontwin-cambridge-layout.png"
+                   alt="Oblique view of the Boston Cambridge digital twin with four labeled base stations among the buildings"
+                   width="814" height="584" />
+              <figcaption>Boston Cambridge Digital Twin</figcaption>
+            </figure>
           </div>
 
           <div class="entry-details" id="research-wcsl-details">
             <div class="entry-details-inner">
               <h4>The localization pipeline</h4>
-              <p>Our collaborative project asks where a transmitting user is located, given the channels received at several base stations. The Cambridge example uses four stations; the method is not restricted to four.</p>
               <ol>
                 <li><strong>Build the digital scene:</strong> represent the buildings and their material properties.</li>
                 <li><strong>Simulate propagation:</strong> use ray tracing to obtain paths with complex coefficients, delays, and directions.</li>
@@ -196,15 +195,13 @@
 
               <h4>My contributions</h4>
               <p><strong>Robustness to environmental changes.</strong> I developed and evaluated synthetic attenuation that changes simulated propagation paths before regenerating the receiver fingerprints. Initial experiments that randomly deleted line-of-sight paths gave limited benefits or worsened performance. I then grouped paths by their departure directions and attenuated or deleted paths within a three-dimensional cone together. Inspired by earlier work perturbing antenna CSI, this method acts on correlated path groups before coherent summation. It can affect line-of-sight and reflected paths across multiple base stations, approximating correlated blockage without physically simulating a new obstruction.</p>
-              <p><strong>Building-height corrections.</strong> I traced implausible building heights to default assignments in the Geo2SigMap scene-generation process, then integrated Overture building and building-part heights through footprint matching. One illustrated footprint changed from a 17.5 m default to 175.7 m. I presented the investigation to Duke’s FuNCtions Lab and opened a pull request at their request. This improved the scene geometry inputs; we have not quantified a localization improvement from this correction alone.</p>
+              <p><strong>Building-height corrections.</strong> I traced implausible building heights to default assignments in the Geo2SigMap scene-generation process, then integrated Overture building and building-part heights through footprint matching. One illustrated footprint changed from a 17.5 m default to 175.7 m. I presented the investigation to Duke’s FuNCtions Lab and opened a pull request at their request.</p>
 
               <h4>Results and scope</h4>
               <ul>
                 <li><strong>Cambridge localization:</strong> 4.20 m mean error on a separate test set with receiver noise enabled.</li>
                 <li><strong>Noiseless car-obstruction test:</strong> grouped synthetic attenuation reduced mean localization error by 15%.</li>
-                <li><strong>Noisy car-obstruction test:</strong> mean error changed from about 9.10 m to 9.20 m. RMSE improved slightly, while median and 90th-percentile error worsened.</li>
               </ul>
-              <p class="research-scope-note">These are separate simulation experiments. The 15% reduction is not an improvement to the 4.20 m result, and performance on measured radio data or previously unseen sites has not been established.</p>
 
               <!-- Add paper and project website links here when available. -->
               <div class="tags">

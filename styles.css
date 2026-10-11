@@ -664,10 +664,14 @@ a {
 /* WCSL shows a visual summary even while its full entry is collapsed. */
 .research-preview {
   display: grid;
-  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
-  align-items: center;
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr) clamp(260px, 32%, 500px);
+  align-items: start;
+  gap: 1.5rem;
   padding: 0.25rem 0.5rem 1.2rem calc(44px + 1.5rem);
+}
+
+.research-preview-copy {
+  max-width: 75ch;
 }
 
 .research-preview-figure {
@@ -737,19 +741,22 @@ a {
 
 .research-figure-stack {
   display: grid;
-  gap: 1.4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.25rem;
   margin: 1.4rem 0;
 }
 
 .research-wide-figure {
+  min-width: 0;
   width: 100%;
-  max-width: 780px;
+  max-width: none;
   margin: 0;
 }
 
-.research-scope-note {
-  color: var(--text-muted);
-  font-size: 0.9rem;
+.research-wide-figure img {
+  width: 100%;
+  height: auto;
 }
 
 /* ---------- Tags ---------- */
@@ -882,7 +889,8 @@ a {
     padding: 1.5rem 1.25rem;
   }
 
-  .entry-figure-grid {
+  .entry-figure-grid,
+  .research-figure-stack {
     grid-template-columns: 1fr;
   }
 
