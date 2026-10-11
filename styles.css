@@ -676,6 +676,10 @@ a {
   background-color: var(--bg-color);
 }
 
+.research-feature:not(.is-open) {
+  cursor: pointer;
+}
+
 .research-preview {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(220px, 28%, 320px);

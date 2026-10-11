@@ -50,6 +50,19 @@ function setupCollapsibleEntries() {
   });
 }
 
+function setupResearchCardClick() {
+  const card = document.querySelector('.research-feature');
+  const toggle = card?.querySelector('.research-preview-toggle');
+  if (!card || !toggle) return;
+
+  card.addEventListener('click', (event) => {
+    // The text button handles both opening and closing. Other interactive
+    // content should keep its own behavior when links are added later.
+    if (event.target.closest('button, a, input, select, textarea, summary')) return;
+    if (!card.classList.contains('is-open')) toggle.click();
+  });
+}
+
 function setupThemeToggle() {
   const toggle = document.getElementById('theme-toggle');
   if (!toggle) return;
@@ -83,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Collapsible entries across all sections ---
   setupCollapsibleEntries();
+  setupResearchCardClick();
 
   // --- 1. Current year in the copyright line ---
   const yearSpan = document.getElementById('year');
