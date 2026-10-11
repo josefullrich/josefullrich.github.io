@@ -28,19 +28,24 @@
  * support (Enter / Space) and focusability come for free.
  */
 function setupCollapsibleEntries() {
-  const toggleButtons = document.querySelectorAll('button.entry-toggle');
+  const toggleButtons = document.querySelectorAll('button.entry-toggle, button.research-preview-toggle');
 
   toggleButtons.forEach((button) => {
     const entry = button.closest('.entry');
     if (!entry) return;
 
     button.addEventListener('click', () => {
-      // Flip the open state...
       const isNowOpen = entry.classList.toggle('is-open');
 
-      // ...and keep the accessibility attribute in sync so screen
-      // readers announce the row as expanded or collapsed.
-      button.setAttribute('aria-expanded', String(isNowOpen));
+      // Some entries have both a heading and a preview button.
+      entry.querySelectorAll('button.entry-toggle, button.research-preview-toggle').forEach((control) => {
+        control.setAttribute('aria-expanded', String(isNowOpen));
+      });
+
+      const previewLabel = entry.querySelector('.research-preview-toggle-label');
+      if (previewLabel) {
+        previewLabel.textContent = isNowOpen ? 'Hide project details' : 'Explore the pipeline and results';
+      }
     });
   });
 }

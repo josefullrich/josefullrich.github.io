@@ -611,7 +611,13 @@ a {
   margin-bottom: 1rem;
 }
 
-.entry ul li {
+.entry ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.entry ul li,
+.entry ol li {
   margin-bottom: 0.35rem;
 }
 
@@ -653,6 +659,97 @@ a {
   color: var(--text-muted);
   line-height: 1.5;
   text-align: center;
+}
+
+/* WCSL shows a visual summary even while its full entry is collapsed. */
+.research-preview {
+  display: grid;
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.25rem 0.5rem 1.2rem calc(44px + 1.5rem);
+}
+
+.research-preview-figure {
+  min-width: 0;
+}
+
+.research-preview-figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.research-preview-figure figcaption {
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.research-preview-copy p {
+  margin-bottom: 0.75rem;
+}
+
+.research-preview-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-color);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.research-preview-toggle:hover {
+  text-decoration: underline;
+}
+
+.research-preview-toggle:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.research-preview-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.research-feature.is-open .research-preview-arrow {
+  transform: rotate(180deg);
+}
+
+.research-feature .entry-details-inner h4 {
+  margin: 1.25rem 0 0.45rem;
+  color: var(--heading-color);
+  font-size: 1rem;
+}
+
+.research-feature .entry-details-inner h4:first-child {
+  margin-top: 0;
+}
+
+.research-feature .entry-details-inner p {
+  margin-bottom: 0.9rem;
+}
+
+.research-figure-stack {
+  display: grid;
+  gap: 1.4rem;
+  margin: 1.4rem 0;
+}
+
+.research-wide-figure {
+  width: 100%;
+  max-width: 780px;
+  margin: 0;
+}
+
+.research-scope-note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 /* ---------- Tags ---------- */
@@ -787,6 +884,15 @@ a {
 
   .entry-figure-grid {
     grid-template-columns: 1fr;
+  }
+
+  .research-preview {
+    grid-template-columns: 1fr;
+    padding: 0.25rem 0.35rem 1.2rem;
+  }
+
+  .research-preview-figure {
+    max-width: 360px;
   }
 
   .project-grid {

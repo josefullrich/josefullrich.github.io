@@ -41,7 +41,7 @@
 
   <!-- External stylesheet -->
   <!-- Version query prevents GitHub Pages from serving an older cached design. -->
-  <link rel="stylesheet" href="styles.css?v=20261005-2" />
+  <link rel="stylesheet" href="styles.css?v=20261010-1" />
 
   <!-- Google Fonts: Inter for clean, professional typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,7 +49,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Defer JavaScript so the HTML renders first -->
-  <script src="script.js?v=20260801-4" defer></script>
+  <script src="script.js?v=20261010-1" defer></script>
 </head>
 
 <body>
@@ -138,12 +138,12 @@
         <h2>Research</h2>
 
         <!-- Research entries start collapsed, like the rest of the site. -->
-        <article class="entry">
+        <article class="entry research-feature">
           <h3 class="entry-row">
             <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="research-wcsl-details">
               <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
               <span class="entry-left">
-                <span class="entry-title">Wireless Digital Twins for Cellular MIMO Localization</span>
+                <span class="entry-title">Wireless Localization with Digital Twins and Learned Beam–Delay Fingerprints</span>
                 <span class="entry-subtitle">UCSB Wireless Communications and Sensornets Laboratory (WCSL) &middot; Advisor: Prof. Upamanyu Madhow</span>
               </span>
               <span class="entry-right">
@@ -154,58 +154,64 @@
             </button>
           </h3>
 
+          <div class="research-preview">
+            <figure class="research-preview-figure">
+              <img src="assets/bostontwin-cambridge-layout.png"
+                   alt="Oblique view of the BostonTwin Cambridge scene, with four labeled base stations among the buildings"
+                   width="1210" height="1042" />
+              <figcaption>BostonTwin Cambridge digital scene and the four base stations used in this example.</figcaption>
+            </figure>
+            <div class="research-preview-copy">
+              <p>We estimate a transmitter’s position from wireless channels observed at multiple base stations. A site-specific digital twin generates simulated signals, which we turn into beam–delay fingerprints and use to train a localization model.</p>
+              <button class="research-preview-toggle" type="button" aria-expanded="false" aria-controls="research-wcsl-details"><span class="research-preview-toggle-label">Explore the pipeline and results</span> <span class="research-preview-arrow" aria-hidden="true">↓</span></button>
+            </div>
+          </div>
+
           <div class="entry-details" id="research-wcsl-details">
             <div class="entry-details-inner">
-              <p>
-                We are developing AI/ML-based positioning algorithms for realistic urban environments,
-                using NVIDIA Sionna to generate synthetic channel data from site-specific wireless
-                digital twins. Alongside the algorithmic work, we are interested in the fundamental
-                estimation-theoretic limits on what any positioning system can achieve in these settings.
-                The primary focus is FR3 bands. My personal contributions include:
-              </p>
-              <ul>
-                <li>Integrated Overture Maps building-height data to replace missing OSM heights, improving wireless digital twin accuracy.</li>
-                <li>Implemented and evaluated CNN-based positioning algorithms, comparing performance and training efficiency.</li>
-                <li>Generated synthetic wireless datasets using realistic 3D scenes and ray tracing with NVIDIA Sionna.</li>
-                <li>Supported development of preprocessing pipelines for multi-base-station channel tensors and position labels.</li>
-                <li>Surveyed recent localization literature and presented findings to the lab to inform ongoing research.</li>
-              </ul>
+              <h4>The localization pipeline</h4>
+              <p>Our collaborative project asks where a transmitting user is located, given the channels received at several base stations. The Cambridge example uses four stations; the method is not restricted to four.</p>
+              <ol>
+                <li><strong>Build the digital scene:</strong> represent the buildings and their material properties.</li>
+                <li><strong>Simulate propagation:</strong> use ray tracing to obtain paths with complex coefficients, delays, and directions.</li>
+                <li><strong>Model the receiver:</strong> synthesize receive-array channels, add receiver noise to simulated pilot signals, then apply spatial beamforming and pilot correlation.</li>
+                <li><strong>Form fingerprints:</strong> represent each link’s received signal across beam and relative-delay dimensions.</li>
+                <li><strong>Estimate position:</strong> normalize and combine fingerprints from multiple base stations, then train a CNN to predict horizontal position.</li>
+              </ol>
 
-              <!-- Research figures appear in a three-column gallery on larger screens. -->
-              <div class="entry-figure-grid">
-                <figure class="entry-figure">
-                  <img src="assets/researchex.png"
-                       alt="Simulated urban deployment showing building heights, base stations, and transmitter sampling locations" />
-                  <figcaption>
-                    Site-specific digital twin with building heights, four base stations,
-                    and 5,000 transmitter locations used for dataset generation.
-                  </figcaption>
+              <div class="research-figure-stack">
+                <figure class="entry-figure research-wide-figure">
+                  <img src="assets/localization-pipeline.png"
+                       alt="Flowchart from Sionna ray tracing and channel impulse response generation through noisy pilot reception, beamspace processing, preprocessing, and position prediction"
+                       width="1462" height="1016" loading="lazy" />
+                  <figcaption>Signal generation, beam–delay processing, and learned position estimation.</figcaption>
                 </figure>
-
-                <figure class="entry-figure">
-                  <img src="assets/researchex2.png"
-                       alt="Training and validation mean absolute localization error plotted across 150 epochs" />
-                  <figcaption>
-                    Training and validation mean absolute error across 150 epochs
-                    for a CNN-based positioning model.
-                  </figcaption>
-                </figure>
-
-                <figure class="entry-figure">
-                  <img src="assets/researchex3.png"
-                       alt="Bar chart grouping test users by base-station connectivity and median localization error" />
-                  <figcaption>
-                    Test-user distribution across base-station connectivity combinations,
-                    colored by median localization error.
-                  </figcaption>
+                <figure class="entry-figure research-wide-figure">
+                  <img src="assets/beam-delay-profile.png"
+                       alt="Clean and noisy beam–delay profiles for one transmitter-to-base-station link, with a noise-only panel and a strongest-beam delay trace"
+                       width="1542" height="1050" loading="lazy" />
+                  <figcaption>One transmitter–base-station link: clean and noisy beam–delay profiles, the noise contribution, and a delay trace for the strongest beam.</figcaption>
                 </figure>
               </div>
 
+              <h4>My contributions</h4>
+              <p><strong>Robustness to environmental changes.</strong> I developed and evaluated synthetic attenuation that changes simulated propagation paths before regenerating the receiver fingerprints. Initial experiments that randomly deleted line-of-sight paths gave limited benefits or worsened performance. I then grouped paths by their departure directions and attenuated or deleted paths within a three-dimensional cone together. Inspired by earlier work perturbing antenna CSI, this method acts on correlated path groups before coherent summation. It can affect line-of-sight and reflected paths across multiple base stations, approximating correlated blockage without physically simulating a new obstruction.</p>
+              <p><strong>Building-height corrections.</strong> I traced implausible building heights to default assignments in the Geo2SigMap scene-generation process, then integrated Overture building and building-part heights through footprint matching. One illustrated footprint changed from a 17.5 m default to 175.7 m. I presented the investigation to Duke’s FuNCtions Lab and opened a pull request at their request. This improved the scene geometry inputs; we have not quantified a localization improvement from this correction alone.</p>
+
+              <h4>Results and scope</h4>
+              <ul>
+                <li><strong>Cambridge localization:</strong> 4.20 m mean error on a separate test set with receiver noise enabled.</li>
+                <li><strong>Noiseless car-obstruction test:</strong> grouped synthetic attenuation reduced mean localization error by 15%.</li>
+                <li><strong>Noisy car-obstruction test:</strong> mean error changed from about 9.10 m to 9.20 m. RMSE improved slightly, while median and 90th-percentile error worsened.</li>
+              </ul>
+              <p class="research-scope-note">These are separate simulation experiments. The 15% reduction is not an improvement to the 4.20 m result, and performance on measured radio data or previously unseen sites has not been established.</p>
+
+              <!-- Add paper and project website links here when available. -->
               <div class="tags">
-                <span class="tag">Wireless Digital Twin</span>
+                <span class="tag">Wireless Digital Twins</span>
                 <span class="tag">Localization</span>
                 <span class="tag">CNN</span>
-                <span class="tag">Beamforming</span>
+                <span class="tag">Beam–Delay Fingerprints</span>
                 <span class="tag">Ray Tracing</span>
               </div>
             </div>
