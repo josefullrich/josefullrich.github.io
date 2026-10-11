@@ -169,7 +169,7 @@
               <h4>The localization pipeline</h4>
               <ol>
                 <li><strong>Build the digital scene:</strong> represent the buildings and their material properties.</li>
-                <li><strong>Simulate propagation:</strong> use ray tracing to obtain paths with complex coefficients, delays, and directions.</li>
+                <li><strong>Simulate propagation:</strong> use NVIDIA Sionna for ray tracing to obtain paths with complex coefficients, delays, and directions.</li>
                 <li><strong>Model the receiver:</strong> synthesize receive-array channels, add receiver noise to simulated pilot signals, then apply spatial beamforming and pilot correlation.</li>
                 <li><strong>Form fingerprints:</strong> represent each link’s received signal across beam and relative-delay dimensions.</li>
                 <li><strong>Estimate position:</strong> normalize and combine fingerprints from multiple base stations, then train a CNN to predict horizontal position.</li>
