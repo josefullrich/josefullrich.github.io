@@ -661,13 +661,18 @@ a {
   text-align: center;
 }
 
-/* Keep the WCSL heading, summary, and cover together as one compact feature. */
-.research-feature {
-  max-width: 1350px;
-  margin: 0 auto 1.25rem;
+/* Research entries share one card style and keep long text at a readable width. */
+.research-card {
+  width: 100%;
+  margin-bottom: 1.25rem;
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 12px;
+  background-color: var(--card-bg);
+  transition: background-color 0.15s ease;
+}
+
+.research-card:hover {
   background-color: var(--bg-color);
 }
 
@@ -676,7 +681,14 @@ a {
   grid-template-columns: minmax(0, 1fr) clamp(220px, 28%, 320px);
   align-items: center;
   gap: 2rem;
-  padding: 0.5rem 0.5rem 1.3rem;
+  width: 100%;
+  max-width: 1350px;
+  margin-inline: auto;
+  padding: 0.5rem;
+}
+
+.research-static .research-preview {
+  grid-template-columns: 1fr;
 }
 
 .research-preview-content {
@@ -684,45 +696,34 @@ a {
   max-width: 75ch;
 }
 
-.research-feature .entry-toggle {
+.research-card-heading {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 28px;
+  grid-template-columns: 44px minmax(0, 1fr);
   align-items: start;
-  gap: 0.35rem 0.9rem;
-  padding: 0;
+  gap: 0.9rem;
 }
 
-.research-feature .entry-logo {
-  grid-column: 1;
-  grid-row: 1 / span 2;
+.research-card-heading .entry-subtitle {
+  margin: 0;
 }
 
-.research-feature .entry-left {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.research-feature .entry-right {
-  grid-column: 2;
-  grid-row: 2;
-  width: auto;
-  flex-direction: row;
+.research-card-meta {
+  display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: flex-start;
   gap: 0.1rem 0.7rem;
-  padding-left: 0;
-  text-align: left;
-}
-
-.research-feature .entry-chevron {
-  grid-column: 3;
-  grid-row: 1;
+  margin-top: 0.35rem;
 }
 
 .research-preview-copy {
   margin-top: 1rem;
   padding-left: calc(44px + 0.9rem);
+}
+
+.research-feature > .entry-details {
+  width: 100%;
+  max-width: 1350px;
+  margin-inline: auto;
 }
 
 .research-preview-figure {
@@ -765,15 +766,6 @@ a {
 .research-preview-toggle:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 4px;
-}
-
-.research-preview-arrow {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.research-feature.is-open .research-preview-arrow {
-  transform: rotate(180deg);
 }
 
 .research-feature .entry-details-inner h4 {

@@ -37,7 +37,7 @@ function setupCollapsibleEntries() {
     button.addEventListener('click', () => {
       const isNowOpen = entry.classList.toggle('is-open');
 
-      // Some entries have both a heading and a preview button.
+      // Keep all controls for an entry in sync.
       entry.querySelectorAll('button.entry-toggle, button.research-preview-toggle').forEach((control) => {
         control.setAttribute('aria-expanded', String(isNowOpen));
       });
