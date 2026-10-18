@@ -210,10 +210,34 @@ a {
 
 .sidebar-controls {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   gap: 0.6rem;
   margin-bottom: 1rem;
+}
+
+.sidebar-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0.2rem 0.35rem;
+  color: var(--accent-color);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.contact-cue-arrow {
+  margin-left: 0.3rem;
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
 .sidebar-social {
@@ -238,6 +262,7 @@ a {
   border: none;
   border-radius: 50%;
   color: var(--text-color);
+  text-decoration: none;
   transition: color 0.15s ease, background-color 0.15s ease;
 }
 
@@ -254,6 +279,10 @@ a {
 .social-icon svg {
   width: 17px;
   height: 17px;
+}
+
+.social-icon-label {
+  display: none;
 }
 
 .resume-button {
@@ -921,6 +950,26 @@ a {
 
   .sidebar-bottom {
     margin-top: 1.25rem;
+  }
+
+  .contact-cue {
+    display: none;
+  }
+
+  .social-icon-email {
+    width: auto;
+    gap: 0.35rem;
+    padding: 0 0.65rem;
+    border-radius: 999px;
+    background-color: var(--card-bg);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .social-icon-label {
+    display: inline;
   }
 
   .resume-button {
