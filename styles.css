@@ -107,19 +107,21 @@ a {
   text-align: center;
 }
 
-.sidebar-photo {
-  /* Fixed square size so the photo is always a perfect circle */
+.sidebar-photo-frame {
   width: 130px;
   height: 130px;
-
-  /* Fill the circular frame and keep the portrait centered. */
-  object-fit: cover;
-  object-position: center;
-
-  display: block;
   margin: 0 auto 1rem;
+  overflow: hidden;
   border-radius: 50%;
   border: 3px solid var(--border-color);
+}
+
+.sidebar-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateY(5%) scale(1.13);
 }
 
 .sidebar-name {
