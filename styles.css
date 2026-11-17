@@ -154,6 +154,14 @@ svg { display: block; }
 .interest-card > p:not(.interest-affiliation) { font-size: 15.5px; line-height: 1.7; margin-bottom: 18px; }
 .interest-card .interest-affiliation { margin-top: auto; color: var(--muted); font-size: 13.5px; line-height: 1.6; }
 .publication-card { padding: 28px 30px; }
+.publication-with-image {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 32px;
+}
+.publication-copy { min-width: 0; }
+.publication-image { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 11px; }
 .publication-card + .publication-card { margin-top: 24px; }
 .publication-card h3 { font-size: 21px; line-height: 1.45; margin-bottom: 12px; }
 .publication-authors { font-size: 15px; line-height: 1.8; }
@@ -279,6 +287,8 @@ details[open] > summary .disclosure-arrow { transform: rotate(180deg); }
   .interest-card h3 { font-size: 19px; }
   .interest-card > p:not(.interest-affiliation) { margin-bottom: 18px; }
   .publication-card { padding: 23px 24px; }
+  .publication-with-image { grid-template-columns: 1fr; gap: 24px; }
+  .publication-image { max-width: 280px; justify-self: center; }
   .publication-card h3 { font-size: 20px; }
   .publication-authors, .publication-venue { font-size: 14px; }
   .publication-links { margin-top: 19px; }
