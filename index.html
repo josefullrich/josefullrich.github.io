@@ -2,388 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Josef Ullrich | Electrical Engineering Portfolio</title>
-  <meta name="description" content="Josef Ullrich's electrical engineering portfolio featuring wireless communications and localization research, FPGA verification experience, coursework, and technical projects." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#e3ecfa" />
+  <title>Josef Ullrich | Electrical Engineering</title>
+  <meta name="description" content="Josef Ullrich is a BS/MS student in Electrical Engineering at UC Santa Barbara, researching wireless localization, signal processing, and coded computation." />
   <meta name="author" content="Josef Ullrich" />
   <link rel="canonical" href="https://josefullrich.com/" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
-  <!-- Link previews for LinkedIn, messaging, and social platforms. -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Josef Ullrich" />
-  <meta property="og:title" content="Josef Ullrich | Electrical Engineering Portfolio" />
-  <meta property="og:description" content="Wireless communications and localization research, FPGA verification experience, coursework, and technical projects." />
+  <meta property="og:title" content="Josef Ullrich | Electrical Engineering" />
+  <meta property="og:description" content="Josef Ullrich is a BS/MS student in Electrical Engineering at UC Santa Barbara, researching wireless localization, signal processing, and coded computation." />
   <meta property="og:url" content="https://josefullrich.com/" />
-  <meta property="og:image" content="https://josefullrich.com/assets/social-preview.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Josef Ullrich electrical engineering portfolio" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Josef Ullrich | Electrical Engineering Portfolio" />
-  <meta name="twitter:description" content="Wireless communications and localization research, FPGA verification experience, coursework, and technical projects." />
-  <meta name="twitter:image" content="https://josefullrich.com/assets/social-preview.png" />
-  <meta name="twitter:image:alt" content="Josef Ullrich electrical engineering portfolio" />
-
-  <!-- Apply the saved theme before rendering to avoid a bright flash on load. -->
-  <script>
-    (() => {
-      try {
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.dataset.theme = savedTheme || preferredTheme;
-      } catch (error) {
-        document.documentElement.dataset.theme = 'light';
-      }
-    })();
-  </script>
-
-  <!-- External stylesheet -->
-  <!-- Version query prevents GitHub Pages from serving an older cached design. -->
-  <link rel="stylesheet" href="styles.css?v=20261019-3" />
-
-  <!-- Google Fonts: Inter for clean, professional typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Defer JavaScript so the HTML renders first -->
-  <script src="script.js?v=20261010-2" defer></script>
+  <meta property="og:image" content="https://josefullrich.com/assets/headshot-lighter.png" />
+  <meta property="og:image:alt" content="Josef Ullrich" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Josef Ullrich | Electrical Engineering" />
+  <meta name="twitter:description" content="Josef Ullrich is a BS/MS student in Electrical Engineering at UC Santa Barbara, researching wireless localization, signal processing, and coded computation." />
+  <meta name="twitter:image" content="https://josefullrich.com/assets/headshot-lighter.png" />
+  <link rel="stylesheet" href="styles.css?v=20261117" />
+  <script src="script.js?v=20261117" defer></script>
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="./">Josef Ullrich</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="./" aria-current="page">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="assets/resume.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="mailto:josef@ucsb.edu">Email</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ============================================================
-       LAYOUT: fixed sidebar on the left, scrolling content on the right
-       ============================================================ -->
-  <div class="layout">
-
-    <!-- ==================== SIDEBAR ==================== -->
-    <aside class="sidebar">
-
-      <div class="sidebar-top">
-        <div class="sidebar-photo-frame">
-          <img src="assets/headshot-lighter.png" alt="Headshot of Josef Ullrich" class="sidebar-photo" />
+  <main id="main" class="container home-content">
+    <section class="introduction" id="about" aria-labelledby="about-heading">
+      <div class="profile">
+        <div class="portrait-frame">
+          <img class="portrait" src="assets/headshot-lighter.png" width="1254" height="1254" alt="Josef Ullrich" fetchpriority="high" />
         </div>
-        <h1 class="sidebar-name">Josef Ullrich</h1>
-
-        <!-- Section navigation -->
-        <nav class="sidebar-nav" id="sidebar-nav">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#research" class="nav-link">Research</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#education" class="nav-link">Education</a>
-          <a href="#projects" class="nav-link">Projects</a>
-        </nav>
-      </div>
-
-      <!-- Contact + resume links pinned near the bottom of the sidebar -->
-      <div class="sidebar-bottom">
-        <div class="sidebar-controls">
-          <div class="sidebar-contact">
-            <span class="contact-cue" aria-hidden="true">Say hello <span class="contact-cue-arrow">↘</span></span>
-            <div class="sidebar-social">
-              <a href="mailto:josef@ucsb.edu" class="social-icon social-icon-email" aria-label="Email me" title="Email me">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                <span class="social-icon-label" aria-hidden="true">Email me</span>
-              </a>
-              <a href="https://www.linkedin.com/in/josefullrich/" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
-              </a>
-            </div>
+        <div class="profile-copy">
+          <h1>Josef Ullrich</h1>
+          <p class="profile-affiliation">BS/MS &middot; Electrical Engineering<br />UC Santa Barbara</p>
+          <a class="profile-email" href="mailto:josef@ucsb.edu">josef@ucsb.edu</a>
+          <div class="profile-links">
+            <a href="assets/resume.pdf" target="_blank" rel="noopener">CV</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="https://www.linkedin.com/in/josefullrich/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to night mode">
-            <span class="theme-toggle-icon" aria-hidden="true">☾</span>
-          </button>
         </div>
-        <a href="assets/resume.pdf" class="resume-button" target="_blank" rel="noopener">Download CV</a>
-        <p class="sidebar-copyright">&copy; <span id="year"></span> Josef Ullrich</p>
       </div>
-    </aside>
-
-    <!-- ==================== MAIN CONTENT ==================== -->
-    <main class="main-content">
-
-      <!-- ---------- About ---------- -->
-      <section id="about" class="section-card">
-        <h2>About Me</h2>
-        <p class="about-lead">
-          I'm a BS/MS EE student at UC Santa Barbara and an undergraduate researcher at the Wireless Communications and Sensornets Laboratory.
+      <div class="biography">
+        <h2 id="about-heading">About me</h2>
+        <p>I am a BS/MS student in Electrical Engineering at UC Santa Barbara. My research interests include wireless localization, signal processing, and coded computation.</p>
+        <p>I work with Prof. <a href="https://www.ece.ucsb.edu/people/faculty/upamanyu-madhow">Upamanyu Madhow</a> in <a href="https://wcsl.ece.ucsb.edu/">WCSL</a> and Prof. <a href="https://www.ece.ucsb.edu/people/faculty/qian-yu">Qian Yu</a> in the <a href="https://sil.ece.ucsb.edu/">Science of Information Lab</a>.</p>
+        <p class="interests-line">
+          <span class="sr-only">I love wireless systems, signal processing, coded computation, surfing, chess, and working out.</span>
+          <span aria-hidden="true">I love <span class="typed-interest" data-typing>wireless systems</span><span class="typing-cursor">|</span></span>
         </p>
-        <p>
-          My research interests lie at the intersection of wireless communications, signal processing, and machine learning.
-          I am particularly excited about the application of these technologies to localization and positioning.
-        </p>
-        <p>
-          Outside of engineering, I enjoy surfing, chess, and working out.
-        </p>
-        <p>Contact me: josef [at] ucsb [dot] edu</p>
-      </section>
+      </div>
+    </section>
 
-      <!-- ---------- Research ---------- -->
-      <!--
-        Collapsible entry pattern (reused across the whole site):
-
-        <article class="entry is-open?">          the row + its hidden details
-          <h3 class="entry-row">                   heading keeps document semantics
-            <button class="entry-toggle"           the WHOLE row is one big button
-                    aria-expanded="true/false"
-                    aria-controls="id-of-details">
-              logo | left column (org/title) | right column (role/date) | chevron
-            </button>
-          </h3>
-          <div class="entry-details" id="...">    animated open/close wrapper
-            <div class="entry-details-inner">     actual bullet points, tags, figures
-          </div>
+    <section class="home-section" id="research" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research interests</h2>
+      <div class="research-grid">
+        <article class="interest-card">
+          <h3>Wireless localization and digital twins</h3>
+          <p>How can physical channel models and learned beam–delay profiles support accurate localization in changing environments?</p>
+          <p class="interest-affiliation">WCSL &middot; Prof. Upamanyu Madhow</p>
         </article>
-
-        script.js wires up every .entry-toggle button automatically.
-      -->
-      <section id="research" class="section-card">
-        <h2>Research</h2>
-
-        <article class="entry research-card research-feature">
-          <div class="research-preview">
-            <div class="research-preview-content">
-              <div class="research-card-heading">
-                <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
-                <div class="research-card-heading-text">
-                  <h3 class="entry-title">Wireless Localization with Digital Twins and Beam-Delay Profiles</h3>
-                  <p class="entry-subtitle">UCSB Wireless Communications and Sensornets Laboratory (WCSL) &middot; Advisor: Prof. Upamanyu Madhow</p>
-                  <div class="research-card-meta">
-                    <span class="entry-role">Undergraduate Researcher</span>
-                    <span class="entry-date">December 2025 &ndash; Present</span>
-                  </div>
-                </div>
-              </div>
-              <div class="research-preview-copy">
-                <p>We estimate a transmitter’s position from wireless channels observed at multiple base stations. A site-specific digital twin generates simulated signals, which we turn into beam–delay fingerprints and use to train a localization model.</p>
-                <button class="research-preview-toggle" type="button" aria-expanded="false" aria-controls="research-wcsl-details"><span class="research-preview-toggle-label">Explore the pipeline and results</span></button>
-              </div>
-            </div>
-            <figure class="research-preview-figure">
-              <img src="assets/bostontwin-cambridge-layout.png"
-                   alt="Oblique view of the Boston Cambridge digital twin with four labeled base stations among the buildings"
-                   width="814" height="584" />
-              <figcaption>Boston Cambridge Digital Twin</figcaption>
-            </figure>
-          </div>
-
-          <div class="entry-details" id="research-wcsl-details">
-            <div class="entry-details-inner">
-              <h4>The localization pipeline</h4>
-              <ol>
-                <li><strong>Build the digital scene:</strong> represent the buildings and their material properties.</li>
-                <li><strong>Simulate propagation:</strong> use NVIDIA Sionna for ray tracing to obtain paths with complex coefficients, delays, and directions.</li>
-                <li><strong>Model the receiver:</strong> synthesize receive-array channels, add receiver noise to simulated pilot signals, then apply spatial beamforming and pilot correlation.</li>
-                <li><strong>Form fingerprints:</strong> represent each link’s received signal across beam and relative-delay dimensions.</li>
-                <li><strong>Estimate position:</strong> normalize and combine fingerprints from multiple base stations, then train a CNN to predict horizontal position.</li>
-              </ol>
-
-              <div class="research-figure-stack">
-                <figure class="entry-figure research-wide-figure">
-                  <img src="assets/localization-pipeline.png"
-                       alt="Flowchart from Sionna ray tracing and channel impulse response generation through noisy pilot reception, beamspace processing, preprocessing, and position prediction"
-                       width="1462" height="1016" loading="lazy" />
-                  <figcaption>Signal generation, beam–delay processing, and learned position estimation.</figcaption>
-                </figure>
-                <figure class="entry-figure research-wide-figure">
-                  <img src="assets/beam-delay-profile.png"
-                       alt="Clean and noisy beam–delay profiles for one transmitter-to-base-station link, with a noise-only panel and a strongest-beam delay trace"
-                       width="1542" height="1050" loading="lazy" />
-                  <figcaption>One transmitter–base-station link: clean and noisy beam–delay profiles, the noise contribution, and a delay trace for the strongest beam.</figcaption>
-                </figure>
-              </div>
-
-              <h4>Selected Contributions</h4>
-              <p><strong>Robustness to environmental changes.</strong> I developed and evaluated synthetic attenuation that changes simulated propagation paths before regenerating the receiver fingerprints. Initial experiments that randomly deleted line-of-sight paths gave limited benefits or worsened performance. I then grouped paths by their departure directions and attenuated or deleted paths within a three-dimensional cone together. Inspired by earlier work perturbing antenna CSI, this method acts on correlated path groups before coherent summation. It can affect line-of-sight and reflected paths across multiple base stations, approximating correlated blockage without physically simulating a new obstruction.</p>
-              <p><strong>Building-height corrections.</strong> I traced implausible building heights to default assignments in the Geo2SigMap scene-generation process, then integrated Overture building and building-part heights through footprint matching. One illustrated footprint changed from a 17.5 m default to 175.7 m. I presented the investigation to Duke’s FuNCtions Lab and opened a pull request at their request.</p>
-
-              <h4>Results and scope</h4>
-              <ul>
-                <li><strong>Cambridge localization:</strong> 4.20 m mean error on a separate test set with receiver noise enabled.</li>
-                <li><strong>Noiseless car-obstruction test:</strong> grouped synthetic attenuation reduced mean localization error by 15%.</li>
-              </ul>
-
-              <!-- Add paper and project website links here when available. -->
-              <div class="tags">
-                <span class="tag">Wireless Digital Twins</span>
-                <span class="tag">Localization</span>
-                <span class="tag">CNN</span>
-                <span class="tag">Beam–Delay Fingerprints</span>
-                <span class="tag">Ray Tracing</span>
-              </div>
-            </div>
-          </div>
+        <article class="interest-card">
+          <h3>Coded computation</h3>
+          <p>What are the optimal recovery thresholds for distributed computation, particularly for nonhomogeneous bi-affine functions?</p>
+          <p class="interest-affiliation">Science of Information Lab &middot; Prof. Qian Yu</p>
         </article>
+      </div>
+    </section>
 
-        <article class="entry research-card research-static">
-          <div class="research-preview">
-            <div class="research-preview-content">
-              <div class="research-card-heading">
-                <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
-                <div class="research-card-heading-text">
-                  <h3 class="entry-title">Coded Computation</h3>
-                  <p class="entry-subtitle">UCSB Science of Information Lab &middot; Advisor: Prof. Qian Yu</p>
-                  <div class="research-card-meta">
-                    <span class="entry-role">Undergraduate Researcher</span>
-                    <span class="entry-date">September 2026 &ndash; Present</span>
-                  </div>
-                </div>
-              </div>
-              <div class="research-preview-copy">
-                <p>Researching optimal recovery thresholds for distributed computation using coded computing, specifically focusing on nonhomogeneous bi-affine functions.</p>
-              </div>
-            </div>
-          </div>
-        </article>
+    <section class="home-section" id="publications" aria-labelledby="publications-heading">
+      <h2 id="publications-heading">Publications</h2>
+      <article class="publication-card" aria-labelledby="mimo-title">
+        <h3 id="mimo-title">AI-Based MIMO Positioning via Beam-Delay Profiles and Digital Twins</h3>
+        <p class="publication-authors">Canan (Janan) Cebeci, <strong>Josef Ullrich</strong>, Oveys Delafrooz, Yiming Li, Tingjun Chen, Upamanyu Madhow</p>
+        <p class="publication-venue">60th Annual Asilomar Conference on Signals, Systems, and Computers &middot; 2026</p>
+        <div class="publication-links">
+          <a class="button" href="assets/pdfs/asilomar-2026-presentation.pdf" target="_blank" rel="noopener">Presentation <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </section>
 
-        <article class="entry research-card research-static">
-          <div class="research-preview">
-            <div class="research-preview-content">
-              <div class="research-card-heading">
-                <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
-                <div class="research-card-heading-text">
-                  <h3 class="entry-title">WiFi-Based Human Motion Sensing</h3>
-                  <p class="entry-subtitle">UCSB Mostofi Lab &middot; Advisor: Prof. Yasamin Mostofi</p>
-                  <div class="research-card-meta">
-                    <span class="entry-role">Undergraduate Researcher</span>
-                    <span class="entry-date">October 2026 &ndash; Present</span>
-                  </div>
-                </div>
-              </div>
-              <div class="research-preview-copy">
-                <p>Studying WiFi-based human motion sensing through paper analysis and implementation of published data-processing methods in MATLAB.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ---------- Experience ---------- -->
-      <section id="experience" class="section-card">
-        <h2>Experience</h2>
-
-        <article class="entry">
-          <h3 class="entry-row">
-            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="exp-ng-digital-details">
-              <img src="assets/northropgrumman.png" alt="" class="entry-logo" />
-              <span class="entry-left">
-                <span class="entry-title">Northrop Grumman</span>
-                <span class="entry-subtitle">Mission Systems Division</span>
-              </span>
-              <span class="entry-right">
-                <span class="entry-role">Digital Engineering Intern</span>
-                <span class="entry-date">Jun &ndash; Aug 2026</span>
-              </span>
-              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </h3>
-
-          <div class="entry-details" id="exp-ng-digital-details">
-            <div class="entry-details-inner">
-              <ul>
+    <section class="home-section" id="experience" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+      <div class="experience-list">
+      <details class="experience-entry">
+        <summary>
+          <span class="experience-identity"><span class="experience-employer">Northrop Grumman</span><span class="experience-role">Digital Engineering Intern</span></span>
+          <span class="experience-date">Jun–Aug 2026</span>
+          <svg class="disclosure-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m6 8 4 4 4-4" /></svg>
+        </summary>
+        <div class="experience-details"><ul>
                 <li>Coded, tested, and debugged FPGA verification modules.</li>
                 <li>Translated verification requirements into sequence diagrams, outlining specific OSVVM calls and messages between verification components.</li>
                 <li>Adhered to strict coding standards and documentation requirements in preparation for an ICDR (Internal Critical Design Review).</li>
-              </ul>
-              <div class="tags">
-                <span class="tag">VHDL</span>
-                <span class="tag">OSVVM</span>
-                <span class="tag">Sequence Diagrams</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="entry">
-          <h3 class="entry-row">
-            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="exp-ng-systems-details">
-              <img src="assets/northropgrumman.png" alt="" class="entry-logo" />
-              <span class="entry-left">
-                <span class="entry-title">Northrop Grumman</span>
-                <span class="entry-subtitle">Mission Systems Division</span>
-              </span>
-              <span class="entry-right">
-                <span class="entry-role">Systems Engineering Intern</span>
-                <span class="entry-date">Jun &ndash; Sep 2025</span>
-              </span>
-              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </h3>
-
-          <div class="entry-details" id="exp-ng-systems-details">
-            <div class="entry-details-inner">
-              <ul>
+              </ul></div>
+      </details>
+      <details class="experience-entry">
+        <summary>
+          <span class="experience-identity"><span class="experience-employer">Northrop Grumman</span><span class="experience-role">Systems Engineering Intern</span></span>
+          <span class="experience-date">Jun–Sep 2025</span>
+          <svg class="disclosure-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m6 8 4 4 4-4" /></svg>
+        </summary>
+        <div class="experience-details"><ul>
                 <li>Reviewed redlined engineering drawings for errors, working closely with the engineering team.</li>
                 <li>Designed, tested, and installed toolbox cutouts for the manufacturing floor, improving efficiency and reducing lost tools.</li>
                 <li>Gained exposure to professional manufacturing, workplace communication, and defense workflows.</li>
-              </ul>
-              <div class="tags">
-                <span class="tag">Systems Engineering</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="entry">
-          <h3 class="entry-row">
-            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="exp-lhph-details">
-              <img src="assets/lhph.png" alt="" class="entry-logo" />
-              <span class="entry-left">
-                <span class="entry-title">LHPH Capital</span>
-                <span class="entry-subtitle">Software Development Team</span>
-              </span>
-              <span class="entry-right">
-                <span class="entry-role">AI Integration Intern</span>
-                <span class="entry-date">Jul &ndash; Sep 2024</span>
-              </span>
-              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </h3>
-
-          <div class="entry-details" id="exp-lhph-details">
-            <div class="entry-details-inner">
-              <ul>
+              </ul></div>
+      </details>
+      <details class="experience-entry">
+        <summary>
+          <span class="experience-identity"><span class="experience-employer">LHPH Capital</span><span class="experience-role">AI Integration Intern</span></span>
+          <span class="experience-date">Jul–Sep 2024</span>
+          <svg class="disclosure-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m6 8 4 4 4-4" /></svg>
+        </summary>
+        <div class="experience-details"><ul>
                 <li>Implemented an AI-powered chatbot using Microsoft Azure OpenAI within the company&rsquo;s React web application, enabling secure access to proprietary data.</li>
                 <li>Integrated ChatGPT into company workflows to support AI-driven insights and streamline business processes.</li>
-              </ul>
-              <div class="tags">
-                <span class="tag">Azure OpenAI</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
+              </ul></div>
+      </details>
+      </div>
+    </section>
+
+    <section class="home-section" id="education" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <article class="education-card">
+        <div class="education-summary">
+          <div>
+            <h3>UC Santa Barbara</h3>
+            <p>BS/MS &middot; Electrical Engineering</p>
+            <p>GPA: 3.96/4.0</p>
           </div>
-        </article>
-      </section>
-
-      <!-- ---------- Education ---------- -->
-      <section id="education" class="section-card">
-        <h2>Education</h2>
-
-        <article class="entry">
-          <h3 class="entry-row">
-            <button class="entry-toggle" type="button" aria-expanded="false" aria-controls="edu-ucsb-details">
-              <img src="assets/ucsb_seal_square.png" alt="" class="entry-logo" />
-              <span class="entry-left">
-                <span class="entry-title">University of California, Santa Barbara</span>
-                <span class="entry-subtitle">GPA: 3.96/4.0</span>
-              </span>
-              <span class="entry-right">
-                <span class="entry-role">BS/MS Electrical Engineering</span>
-                <span class="entry-date">BS Expected Jun 2027</span>
-                <span class="entry-date">MS Expected Jun 2028</span>
-              </span>
-              <svg class="entry-chevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </h3>
-
-          <div class="entry-details" id="edu-ucsb-details">
-            <div class="entry-details-inner">
-              <h4 class="coursework-title">Relevant Coursework</h4>
-
-              <details class="coursework-group">
+          <div class="education-dates">
+            <p>BS expected June 2027</p>
+            <p>MS expected June 2028</p>
+          </div>
+        </div>
+        <details class="coursework">
+          <summary>Relevant coursework</summary>
+          <div class="coursework-content">
+<details class="coursework-group">
                 <summary>Wireless Communications &amp; Signal Processing</summary>
                 <ul>
                   <li>ECE 146A (Digital Communication Fundamentals) &mdash; A</li>
@@ -419,138 +187,19 @@
                   <li>MATH 6B (Vector Calculus II) &mdash; A+</li>
                 </ul>
               </details>
-            </div>
           </div>
-        </article>
-      </section>
-
-      <!-- ---------- Projects ---------- -->
-      <section id="projects" class="section-card">
-        <h2>Selected Projects</h2>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-card-heading">
-              <div>
-                <h3>Ground-Penetrating Radar Imaging</h3>
-              </div>
-              <a
-                class="project-pdf-button"
-                href="assets/pdfs/ground-penetrating-radar.pdf"
-                download="ground-penetrating-radar.pdf"
-                aria-label="Download the Ground-Penetrating Radar Imaging project PDF"
-                title="Download project PDF"
-              >
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <path d="M14 2v6h6M8 13h8M8 17h6"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-card-description">
-              Reconstructed subsurface pavement images from FMCW radar data using inverse FFT
-              processing in MATLAB, identifying rebar approximately 10&ndash;15 cm below the surface.
-            </p>
-            <div class="tags">
-              <span class="tag">MATLAB</span>
-              <span class="tag">FMCW Radar</span>
-              <span class="tag">Signal Processing</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-heading">
-              <div>
-                <h3>Guitar Signal Chain and Filters</h3>
-              </div>
-              <div class="project-card-actions" role="group" aria-label="Guitar Signal Chain and Filters project links">
-                <a
-                  class="project-pdf-button"
-                  href="https://drive.google.com/file/d/1m3yyWG97sLoY01PakV-pX5V3QMYi_n5y/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="View the Guitar Signal Chain and Filters paper"
-                  title="View paper"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <path d="M14 2v6h6M8 13h8M8 17h6"/>
-                  </svg>
-                </a>
-                <a
-                  class="project-pdf-button"
-                  href="https://github.com/josefullrich1/Guitar-Signal-Chain-and-Filters"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="View the Guitar Signal Chain and Filters circuits on GitHub"
-                  title="View circuits on GitHub"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.489.5.092.682-.217.682-.48 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.455-1.156-1.11-1.464-1.11-1.464-.91-.622.069-.609.069-.609 1.004.07 1.532 1.03 1.532 1.03.892 1.529 2.341 1.087 2.91.831.091-.646.35-1.087.636-1.337-2.221-.253-4.555-1.111-4.555-4.943 0-1.092.39-1.984 1.029-2.683-.103-.253-.446-1.269.098-2.645 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.376.202 2.392.1 2.645.64.699 1.028 1.591 1.028 2.683 0 3.842-2.337 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.337-.012 2.416-.012 2.744 0 .266.18.577.688.479A10.004 10.004 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/>
-                  </svg>
-                </a>
-                <a
-                  class="project-pdf-button"
-                  href="https://drive.google.com/drive/folders/1pUM6McadZK6jp-Q_NMeijgBzVHkA-kqZ?usp=sharing"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="View the Guitar Signal Chain and Filters demonstration videos"
-                  title="View demonstration"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    <path d="m10 9 5 3-5 3Z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <p class="project-card-description">
-              Developed and tested a full guitar signal chain (input buffer, pre-amp, drive amp,
-              output buffer) from initial design and simulation through hands-on build and verification.
-              Applied principles from Signal Processing and Circuit Analysis courses to design and
-              implement fuzz, band-pass, and delay filters, selecting cutoff frequencies and tuning
-              component values for desired frequency responses.
-            </p>
-            <div class="tags">
-              <span class="tag">LTspice</span>
-              <span class="tag">Analog Circuit Design</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-heading">
-              <div>
-                <h3>Digital Highpass Butterworth Filter</h3>
-              </div>
-              <a
-                class="project-pdf-button"
-                href="assets/pdfs/butterworth-filter.pdf"
-                download="butterworth-filter.pdf"
-                aria-label="Download the Digital Highpass Butterworth Filter project PDF"
-                title="Download project PDF"
-              >
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <path d="M14 2v6h6M8 13h8M8 17h6"/>
-                </svg>
-              </a>
-            </div>
-            <p class="project-card-description">
-              Designed and verified a digital highpass Butterworth filter using analog lowpass
-              conversion and the bilinear transformation. The final design achieved 0.47 dB
-              passband attenuation and 24.21 dB stopband attenuation.
-            </p>
-            <div class="tags">
-              <span class="tag">MATLAB</span>
-              <span class="tag">DSP</span>
-              <span class="tag">Digital Filters</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
+        </details>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer container">
+    <a class="footer-name" href="./">Josef Ullrich</a>
+    <nav aria-label="Footer navigation">
+      <a href="mailto:josef@ucsb.edu">Email</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://www.linkedin.com/in/josefullrich/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="projects.html">Projects</a>
+    </nav>
+  </footer>
 </body>
 </html>
