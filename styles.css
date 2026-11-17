@@ -127,7 +127,7 @@ svg { display: block; }
 .biography > p:not(.interests-line) { margin-bottom: 22px; line-height: 1.8; }
 .interests-line {
   margin-top: 32px;
-  min-height: 2.3em;
+  min-height: 3.2em;
   color: #506c84;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 18px;
@@ -270,7 +270,7 @@ details[open] > summary .disclosure-arrow { transform: rotate(180deg); }
   .biography { border-left: 0; padding-left: 0; }
   .biography h2 { font-size: 27px; margin-bottom: 16px; }
   .biography > p:not(.interests-line) { margin-bottom: 18px; line-height: 1.8; }
-  .interests-line { margin-top: 23px; font-size: 17px; min-height: 2.2em; }
+  .interests-line { margin-top: 23px; font-size: 17px; }
   .home-section { margin-top: 48px; }
   h2 { font-size: 26px; }
   .home-section > h2 { margin-bottom: 19px; }

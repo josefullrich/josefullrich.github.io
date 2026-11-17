@@ -3,7 +3,7 @@
   const target = document.querySelector('[data-typing]');
   if (!target) return;
 
-  const words = ['wireless systems', 'signal processing', 'coded computation', 'surfing', 'chess', 'working out'];
+  const words = ['wireless systems', 'surfing', 'signal processing', 'chess', 'integrated sensing and communications', 'coded computation'];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let wordIndex = 0;
   let characterIndex = words[0].length;
